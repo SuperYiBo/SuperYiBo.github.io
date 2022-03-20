@@ -35,16 +35,34 @@
 <meta name="generator" content="Hexo 6.1.0"></head>
 
 <body>
-<!-- 雪花特效2 -->
-
-  <script type="text/javascript" src="/js/snow2.js"></script>
-
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
 
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-<div class="overlay" style="background: #4d4d4d"></div>
+    <div class="overlay"></div>
+        <script >
+            var bglist = [];
+            bglist[0] = "/img/bg0.jpeg";
+            bglist[1] = "/img/bg1.jpeg";
+            bglist[2] = "/img/bg2.jpeg";
+            bglist[3] = "/img/bg3.jpeg";
+            bglist[4] = "/img/bg4.jpeg";
+            bglist[5] = "/img/bg5.jpeg";
+            setInterval('Getbg();', 5000);   //切换时间间隔，单位毫秒
+            function Getbg(){
+                        var bgindex = Math.round(Math.random()*5);
+                        //输出随机背景
+                        var bkg = document.getElementsByClassName("left-col")[0];
+                        //这句话意思是找名字是left-col的class元素，找id可以用getElementById()
+                        bkg.style.backgroundImage="url("+ bglist[bgindex] +")";
+        }
+        </script>
+
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -94,7 +112,7 @@
 			<!-- 《左侧边栏添加--网易云音乐插件 -->
       
       <div style="position:absolute; bottom:210px; left:auto; width:50%">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=2&id=1444781647&auto=0&height=32"></iframe>
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=230 height=52 src="//music.163.com/outchain/player?type=2&id=1444781647&auto=1&height=32"></iframe>
       </div>
       
       <!-- 网易云音乐插件》-->
@@ -195,6 +213,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -320,6 +349,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -463,6 +496,16 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+
+<!--动态线条背景-->
+
+    <script type="text/javascript" color="0, 131, 255" opacity="0.8"
+        zIndex="-1" count="99"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+
+
+
 
 </body>
 

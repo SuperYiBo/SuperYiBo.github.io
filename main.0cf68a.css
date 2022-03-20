@@ -759,7 +759,7 @@ body {
   position: absolute;
   right: 0;
   min-height: 100%;
-  background: #eaeaea;
+  /*background: #B0A0AA;*/
   left: 300px;
   width: auto
 }
@@ -876,40 +876,20 @@ body {
   text-align: center
 }
 
-/*.left-col #header .profilepic img {*/
-/*  border-radius: 300px;*/
-/*  opacity: 1;*/
-/*  -webkit-transition: all .2s ease-in*/
-/*}*/
-
 .left-col #header .profilepic img {
-  width: 100%;
-  height: 100%;
-  background: #88acdb;
-  border-radius: 50%;
-  border: 0;
-  -webkit-transition: -webkit-transform 1s ease-out;
-  -moz-transition: -moz-transform 1s ease-out;
-  -o-transition: -o-transform 1s ease-out;
-  -ms-transition: -ms-transform 1s ease-out
+  border-radius: 300px;
+  opacity: 1;
+  -webkit-transition: all .2s ease-in
 }
+
+
+
 
 .left-col #header .profilepic img.show {
   width: 100%;
   height: 100%;
   opacity: 1
 }
-
-.left-col #header .profilepic img:hover {
-  transform: rotate(1turn)
-}
-
-
-/*.left-col #header .profilepic img.show {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*  opacity: 1*/
-/*}*/
 
 .left-col #header .header-author {
   text-align: center;
@@ -2014,7 +1994,7 @@ pre .css ~ * .id, pre .id {
   border: 1px solid #ddd;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
-  background: #fff;
+  background: rgba(255,255,255,.8);
   transition: all .2s ease-in
 }
 
