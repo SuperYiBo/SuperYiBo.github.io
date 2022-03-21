@@ -44,32 +44,14 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-    <div class="overlay"></div>
-        <script >
-            var bglist = [];
-            bglist[0] = "/img/bg0.jpeg";
-            bglist[1] = "/img/bg1.jpeg";
-            bglist[2] = "/img/bg2.jpeg";
-            bglist[3] = "/img/bg3.jpeg";
-            bglist[4] = "/img/bg4.jpeg";
-            bglist[5] = "/img/bg5.jpeg";
-            setInterval('Getbg();', 50000);   //切换时间间隔，单位毫秒
-            function Getbg(){
-                        var bgindex = Math.round(Math.random()*5);
-                        //输出随机背景
-                        var bkg = document.getElementsByClassName("left-col")[0];
-                        //这句话意思是找名字是left-col的class元素，找id可以用getElementById()
-                        bkg.style.backgroundImage="url("+ bglist[bgindex] +")";
-        }
-        </script>
-
+       <div class="overlay" style="background: /img/bg1.jpeg"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			<img src="/img/header.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Chen Xiaochao</a></h1>
+		  <h1 class="header-author"><a href="/">xiaochao</a></h1>
 		</hgroup>
 		
 
@@ -134,7 +116,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 				<img src="/img/header.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Chen Xiaochao</h1>
+			  <h1 class="header-author js-header-author">xiaochao</h1>
 			</hgroup>
 			
 			
