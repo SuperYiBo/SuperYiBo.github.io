@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>cxcblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网络通信概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，仅仅覆盖一个教室或一个机房城域网：覆盖范围较大，可以覆盖一个城市广域网：覆盖范围最大，可以覆盖全国，甚至全球，万维网全球网查看ip地址：ipconfig表示形式：点分十进制 xx.xx.xx.xx 每个10进制范围0-255ip地址组成：网络地址—+主机地址ip">
+  <meta name="description" content="网络通信概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cxcblog">
 <meta property="og:url" content="http://example.com/2022/03/23/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/index.html">
 <meta property="og:site_name" content="cxcblog">
-<meta property="og:description" content="网络通信概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，仅仅覆盖一个教室或一个机房城域网：覆盖范围较大，可以覆盖一个城市广域网：覆盖范围最大，可以覆盖全国，甚至全球，万维网全球网查看ip地址：ipconfig表示形式：点分十进制 xx.xx.xx.xx 每个10进制范围0-255ip地址组成：网络地址—+主机地址ip">
+<meta property="og:description" content="网络通信概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
 <meta property="og:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
 <meta property="article:published_time" content="2022-03-23T03:27:03.315Z">
-<meta property="article:modified_time" content="2022-03-23T03:27:03.316Z">
+<meta property="article:modified_time" content="2022-03-23T05:26:35.994Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
@@ -174,7 +174,9 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>网络通信</strong>概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，仅仅覆盖一个教室或一个机房城域网：覆盖范围较大，可以覆盖一个城市广域网：覆盖范围最大，可以覆盖全国，甚至全球，万维网全球网查看ip地址：ipconfig表示形式：点分十进制 xx.xx.xx.xx 每个10进制范围0-255ip地址组成：网络地址—+主机地址ipv4 ： 4字节ipv6: 16字节  </p>
+        <p><strong>网络通信</strong>概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，</p>
+<span id="more"></span>仅仅覆盖一个教室或一个机房城域网：覆盖范围较大，可以覆盖一个城市广域网：覆盖范围最大，可以覆盖全国，甚至全球，万维网全球网查看ip地址：ipconfig表示形式：点分十进制 xx.xx.xx.xx 每个10进制范围0-255ip地址组成：网络地址—+主机地址ipv4 ： 4字节ipv6: 16字节  
+
 <p><strong>域名</strong><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -&gt;对应一个ip地址，方便记忆通过浏览器访问一个主机的服务器，需要 ip(域名）+端口号（如tomcat服务器 对应端口号8080）端口号：范围：0-655350-1024已经被占用，一般不建议使用、<br>Tcp传输控制协议1、使用Tcp协议前，先建立TCP连接，形成传输数据通道2、传输数据前，采用”三次握手”机制，是可靠的3、TCP协议进行通信的两个应用进程：客户端，服务端4、可以传输大量的数据5、传输完毕，需要释放已建立的连接，效率低(如打电话） UDP协议1、将数据源、目的、封装成数据包，不需要建立连接2、每个数据包的大小控制在64K内，不适合传输大量数据3、因为无需创建连接，故是不可靠的4、发送数据结束时无需释放资源，速度快（如发短信)<br><strong>InetAddress类</strong>、获取本机InetAddress对象getLocalHost2、根据指定主机名&#x2F;域名获取IP地址对象getByName3、获取InetAdddress对象的主机名getHostName4、获取InetAdddress对象的地址getHostAddress<br><strong>Socket</strong>、开发网络应用程序2、通信的两端都要有Socket,是两台机器间通信的端点3、网络通信其实是Socket之间的通讯4、Socket允许程序把网络连接当成一个流，数据在两个Socket间通过I&#x2F;O传输5、一般主动发起通信的应用为客户端，等待通信请求的为服务端</p>
 <p><img src="C:\Users\18442\AppData\Local\Temp\Image.png" alt="Image"></p>
 <p><strong>客户端与服务端互传消息案列</strong></p>
