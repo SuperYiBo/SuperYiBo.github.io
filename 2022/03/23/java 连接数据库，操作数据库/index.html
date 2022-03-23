@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | cxcblog</title>
+  <title>cxcblog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="java 连接数据库，操作数据库1、导入mysql-connect.jar,加入library。（该jar是连接数据库驱动jar包，由mysql公司开发的，里面有各种类）以下是连接数据库  方式一 ~ 方式四 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152">
+<meta property="og:type" content="article">
 <meta property="og:title" content="cxcblog">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+<meta property="og:url" content="http://example.com/2022/03/23/java%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="cxcblog">
+<meta property="og:description" content="java 连接数据库，操作数据库1、导入mysql-connect.jar,加入library。（该jar是连接数据库驱动jar包，由mysql公司开发的，里面有各种类）以下是连接数据库  方式一 ~ 方式四 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-23T03:32:23.154Z">
+<meta property="article:modified_time" content="2022-03-23T03:32:23.154Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -162,165 +166,182 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java 连接数据库，操作数据库" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>java 连接数据库，操作数据库</strong>1、导入mysql-connect.jar,加入library。（该jar是连接数据库驱动jar包，由mysql公司开发的，里面有各种类）以下是连接数据库  方式一 ~ 方式四</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public class Jdbc01 &#123;</span><br><span class="line">    public static void main(String[] args) throws SQLException &#123;</span><br><span class="line">        //1、注册驱动,driver类在jar包中</span><br><span class="line">        Driver driver = new Driver();</span><br><span class="line">        //&quot;jdbc:mysql://（连接协议，固定写法）localhost:3306（本机ip地址和mysql端口号）/hsp_da01（要连接的mysql数据库）&quot;</span><br><span class="line">        String url = &quot;jdbc:mysql://localhost:3306/hsp_db01&quot;;</span><br><span class="line">        //将用户名和密码存于properties对象中</span><br><span class="line">        Properties properties = new Properties();</span><br><span class="line">        //user,password固定写法，不能修改，后面的根据情况改用户，密码修改</span><br><span class="line">        properties.setProperty(&quot;user&quot;,&quot;root&quot;);</span><br><span class="line">        properties.setProperty(&quot;password&quot;,&quot;cxc&quot;);</span><br><span class="line">        //2、得到连接</span><br><span class="line">        Connection connect = driver.connect(url, properties);</span><br><span class="line">        //3、执行sql</span><br><span class="line">        String sql=&quot;insert into student values(null,&#x27;tom&#x27;,&#x27;男&#x27;)&quot;;</span><br><span class="line">        //statement执行sql语句，并返回执行结果对象</span><br><span class="line">        Statement statement = connect.createStatement();</span><br><span class="line">        int rows = statement.executeUpdate(sql);//返回影响行数</span><br><span class="line">        System.out.println(rows&gt;0?&quot;成功&quot;:&quot;失败&quot;);</span><br><span class="line">        //4、关闭连接资源</span><br><span class="line">        statement.close();</span><br><span class="line">        connect.close();</span><br><span class="line">    &#125;</span><br><span class="line">@Test</span><br><span class="line">    public void Jdbc02() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException &#123;</span><br><span class="line">        Class&lt;?&gt; aClass = Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">        Driver driver =(Driver) aClass.newInstance();</span><br><span class="line">        String url = &quot;jdbc:mysql://localhost:3306/hsp_db01&quot;;</span><br><span class="line">        Properties properties = new Properties();</span><br><span class="line">        properties.setProperty(&quot;user&quot;,&quot;root&quot;);</span><br><span class="line">        properties.setProperty(&quot;password&quot;,&quot;cxc&quot;);</span><br><span class="line">        Connection connect = driver.connect(url, properties);</span><br><span class="line">        String sql=&quot;insert into student values(null,&#x27;tom&#x27;,&#x27;男&#x27;)&quot;;</span><br><span class="line">        Statement statement = connect.createStatement();</span><br><span class="line">        int rows = statement.executeUpdate(sql);//返回影响行数</span><br><span class="line">        System.out.println(rows&gt;0?&quot;方式二：连接成功&quot;:&quot;失败&quot;);</span><br><span class="line">        statement.close();</span><br><span class="line">        connect.close();</span><br><span class="line">    &#125;</span><br><span class="line">    @Test</span><br><span class="line">public void Jdbc03() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException &#123;</span><br><span class="line">        Class&lt;?&gt; aClass = Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">        Driver driver =(Driver) aClass.newInstance();</span><br><span class="line">        String url =&quot;jdbc:mysql://localhost:3306/hsp_db01&quot;;</span><br><span class="line">        String user = &quot;root&quot;;</span><br><span class="line">        String password = &quot;cxc&quot;;</span><br><span class="line">        DriverManager.registerDriver(driver);</span><br><span class="line">        Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">        System.out.println(&quot;方式三：连接成功&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @Test</span><br><span class="line">    public void Jdbc04() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException &#123;</span><br><span class="line">        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//Driver类中有一静态代码块自动注册</span><br><span class="line">        String url =&quot;jdbc:mysql://localhost:3306/hsp_db01&quot;;</span><br><span class="line">        String user = &quot;root&quot;;</span><br><span class="line">        String password = &quot;cxc&quot;;</span><br><span class="line">        Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">        System.out.println(&quot;方式四：连接成功&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 推荐使用  连接数据库并创建表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//配置文件</span><br><span class="line">user=root</span><br><span class="line">password=cxc</span><br><span class="line">url=jdbc:mysql://localhost:3306/hsp_db01</span><br><span class="line">driver=com.mysql.jdbc.Driver</span><br><span class="line">//连接方法</span><br><span class="line">@Test</span><br><span class="line">public void Jdbc05() throws IOException, ClassNotFoundException, SQLException &#123;</span><br><span class="line">    //通过properties对象获取配置文件相关信息</span><br><span class="line">    Properties properties = new Properties();</span><br><span class="line">    properties.load(new FileInputStream(&quot;src\\properties&quot;));</span><br><span class="line">    String user = properties.getProperty(&quot;user&quot;);</span><br><span class="line">    String password = properties.getProperty(&quot;password&quot;);</span><br><span class="line">    String driver = properties.getProperty(&quot;driver&quot;);</span><br><span class="line">    String url = properties.getProperty(&quot;url&quot;);</span><br><span class="line">    Class.forName(driver);//建议写上，不写也可以，在mysql-connect.jar MATA-INF services下有个文件自动加载类</span><br><span class="line">    Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">    System.out.println(&quot;方式五：连接成功&quot;);</span><br><span class="line">String sql=&quot;create table news(id int,content varchar(32))&quot;;</span><br><span class="line">//statement执行sql语句，并返回执行结果对象</span><br><span class="line">Statement statement = connection.createStatement();</span><br><span class="line">int rows = statement.executeUpdate(sql);//返回影响行数</span><br><span class="line">//4、关闭连接资源</span><br><span class="line">statement.close();</span><br><span class="line">connection.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>resultset</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public void Jdbc06() throws IOException, ClassNotFoundException, SQLException &#123;</span><br><span class="line">        //通过properties对象获取配置文件相关信息</span><br><span class="line">        Properties properties = new Properties();</span><br><span class="line">        properties.load(new FileInputStream(&quot;src\\properties&quot;));</span><br><span class="line">        String user = properties.getProperty(&quot;user&quot;);</span><br><span class="line">        String password = properties.getProperty(&quot;password&quot;);</span><br><span class="line">        String driver = properties.getProperty(&quot;driver&quot;);</span><br><span class="line">        String url = properties.getProperty(&quot;url&quot;);</span><br><span class="line">        Class.forName(driver);//建议写上，不写也可以，在mysql-connect.jar MATA-INF services下有个文件自动加载类</span><br><span class="line">        Connection connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">        System.out.println(&quot;方式五：连接成功&quot;);</span><br><span class="line">        String sql=&quot;select * from student&quot;;</span><br><span class="line">        //statement执行sql语句，并返回执行结果对象</span><br><span class="line">        Statement statement = connection.createStatement();</span><br><span class="line">        ResultSet resultSet = statement.executeQuery(sql); //返回影响行数</span><br><span class="line">        while(resultSet.next())&#123;</span><br><span class="line">            int id = resultSet.getInt(1);</span><br><span class="line">            String name = resultSet.getString(2);</span><br><span class="line">            String sex = resultSet.getString(3);</span><br><span class="line">            System.out.println(id+&quot;\t&quot;+name + &quot;\t&quot;+sex);</span><br><span class="line">        &#125;</span><br><span class="line">//4、关闭连接资源</span><br><span class="line">        resultSet.close();</span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubaopay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/mysql/" class="archive-article-date">
-  	<time datetime="2022-03-23T04:52:01.749Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/022/03/23/java%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/java%20%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/" class="archive-article-date">
-  	<time datetime="2022-03-23T03:32:23.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-03-23T03:28:53.532Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2022/03/23/mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/23/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/" class="archive-article-date">
-  	<time datetime="2022-03-23T03:27:03.315Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/Jdbc%E8%BF%9E%E6%8E%A5%E6%B1%A0/" class="archive-article-date">
-  	<time datetime="2022-03-23T03:21:13.204Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/19/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99Markdown/" class="archive-article-date">
-  	<time datetime="2022-03-19T08:59:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-19</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/19/%E5%8D%9A%E5%AE%A2%E7%BC%96%E5%86%99Markdown/">博客文章编写Markdown</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -343,8 +364,8 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
