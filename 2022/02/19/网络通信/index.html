@@ -15,14 +15,11 @@
 <meta property="og:site_name" content="Supercx博客">
 <meta property="og:description" content="网络通信">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
-<meta property="og:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
 <meta property="article:published_time" content="2022-02-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-25T07:36:48.689Z">
+<meta property="article:modified_time" content="2022-03-25T08:22:57.208Z">
 <meta property="article:author" content="Xiaochao">
 <meta property="article:tag" content="网络通信">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/18442/AppData/Local/Temp/Image.png">
   
     <link rel="alternative" href="/atom.xml" title="Supercx博客" type="application/atom+xml">
   
@@ -196,7 +193,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>概念：将数据通过网络从一台设备传输到另一台设备网络：两台或多台设备通过一定物理设备连接起来构成了网络网络分类：局域网：覆盖范围小，</p>
 <p>仅仅覆盖一个教室或一个机房城域网：覆盖范围较大，可以覆盖一个城市广域网：覆盖范围最大，可以覆盖全国，甚至全球，万维网全球网查看ip地址：ipconfig表示形式：点分十进制 xx.xx.xx.xx 每个10进制范围0-255ip地址组成：网络地址—+主机地址ipv4 ： 4字节ipv6: 16字节  </p>
 <p><strong>域名</strong><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -&gt;对应一个ip地址，方便记忆通过浏览器访问一个主机的服务器，需要 ip(域名）+端口号（如tomcat服务器 对应端口号8080）端口号：范围：0-655350-1024已经被占用，一般不建议使用、<br>Tcp传输控制协议1、使用Tcp协议前，先建立TCP连接，形成传输数据通道2、传输数据前，采用”三次握手”机制，是可靠的3、TCP协议进行通信的两个应用进程：客户端，服务端4、可以传输大量的数据5、传输完毕，需要释放已建立的连接，效率低(如打电话） UDP协议1、将数据源、目的、封装成数据包，不需要建立连接2、每个数据包的大小控制在64K内，不适合传输大量数据3、因为无需创建连接，故是不可靠的4、发送数据结束时无需释放资源，速度快（如发短信)<br><strong>InetAddress类</strong>、获取本机InetAddress对象getLocalHost2、根据指定主机名&#x2F;域名获取IP地址对象getByName3、获取InetAdddress对象的主机名getHostName4、获取InetAdddress对象的地址getHostAddress<br><strong>Socket</strong>、开发网络应用程序2、通信的两端都要有Socket,是两台机器间通信的端点3、网络通信其实是Socket之间的通讯4、Socket允许程序把网络连接当成一个流，数据在两个Socket间通过I&#x2F;O传输5、一般主动发起通信的应用为客户端，等待通信请求的为服务端</p>
-<p><img src="C:\Users\18442\AppData\Local\Temp\Image.png" alt="Image"></p>
 <p><strong>客户端与服务端互传消息案列</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class SocketTcpServer &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        ServerSocket serverSocket = new ServerSocket(9999);//设置服务端口号，serverSocket下有很多socket,供多个客户端连接</span><br><span class="line">        Socket socket = serverSocket.accept();//等待接收，程序会阻塞在这里，直到接收到连接</span><br><span class="line">        System.out.println(&quot;服务器端：&quot;+socket.getClass());</span><br><span class="line">        InputStream inputStream = socket.getInputStream();</span><br><span class="line">        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));</span><br><span class="line">        System.out.println(br.readLine());</span><br><span class="line">        OutputStream outputStream = socket.getOutputStream();</span><br><span class="line">        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream));</span><br><span class="line">        bw.write(&quot;hello,client&quot;);</span><br><span class="line">        bw.newLine();</span><br><span class="line">        bw.flush();</span><br><span class="line">        serverSocket.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        bw.close();</span><br><span class="line">        br.close();</span><br><span class="line">        System.out.println(&quot;服务端退出&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class SocketTcpClient &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        Socket socket = new Socket(InetAddress.getLocalHost(),9999);//要传输电脑ip和端口</span><br><span class="line">        System.out.println(&quot;客户端：&quot;+socket.getClass());</span><br><span class="line">        OutputStream outputStream = socket.getOutputStream();</span><br><span class="line">        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream));</span><br><span class="line">        bw.write(&quot;hello,server&quot;);</span><br><span class="line">        bw.newLine();//相当于结束标志语，必须要有，并且服务端读取必须readline,也可以用socket.shutdownOutput();</span><br><span class="line">        bw.flush();//必须flush,写进去</span><br><span class="line">        InputStream inputStream = socket.getInputStream();</span><br><span class="line">        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));</span><br><span class="line">        System.out.println(br.readLine());</span><br><span class="line">        br.close();</span><br><span class="line">        bw.close();</span><br><span class="line">        socket.close();</span><br><span class="line">        System.out.println(&quot;客户端退出&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -205,7 +201,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 <p><strong>netstat命令</strong>1、netstat -an 可以查看当前主机网络情况，包括端口监听情况和网络连接情况2、netstat -an | more 可以分页显示 &#x2F;按空格键可也查看下一页netstat -ano|findstr 80803、说明：(1)Listening表示某个端口在监听(2)如果有一个外部程序（客户端）连接到该端口，就会显示一条连接信息(3)ctrl +c 退出指令<br>注：当客户端连接到服务端后，实际上客户端也是通过一个端口和服务器进行通讯的，这个端口是TcP&#x2F;ip来分配的，随机的。</p>
 <p><strong>UDP网络编程</strong></p>
-<p><img src="C:\Users\18442\AppData\Local\Temp\Image.png" alt="Image"></p>
 <p>UDP说明：1、没有明确的服务端和客户端，演变成数据的发送端和接收端2、接收数据和发送数据是通过DatagramSocket对象完成的3、将数据封装到DatagramPacket对象&#x2F;装包4、当接收到DatagramPacket对象，需要进行拆包取出数据5、DatagramSocket可以指定哪个端口接受数据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class UdpReceiverA &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        DatagramSocket socket = new DatagramSocket(9999);</span><br><span class="line">        byte[] bytes = new byte[1024];</span><br><span class="line">        DatagramPacket packet = new DatagramPacket(bytes, bytes.length);</span><br><span class="line">        socket.receive(packet);</span><br><span class="line">        System.out.println(new String(packet.getData(),0, packet.getLength()));</span><br><span class="line">        byte[] data = &quot;B，好的明天见&quot;.getBytes();</span><br><span class="line">        DatagramPacket packet1 = new DatagramPacket(data, data.length, InetAddress.getByName(&quot;10.40.31.89&quot;), 9998);</span><br><span class="line">        socket.send(packet1);</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class UdpSenderB &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        DatagramSocket socket = new DatagramSocket(9998);</span><br><span class="line">        byte[] data = &quot;A，明天吃火锅&quot;.getBytes();</span><br><span class="line">        DatagramPacket packet = new DatagramPacket(data, data.length, InetAddress.getByName(&quot;10.40.31.89&quot;), 9999);</span><br><span class="line">        socket.send(packet);</span><br><span class="line">        byte[] data1 = new byte[1024];</span><br><span class="line">        DatagramPacket packet1 = new DatagramPacket(data1, data1.length);</span><br><span class="line">        socket.receive(packet1);</span><br><span class="line">        System.out.println(new String(packet1.getData(),0,packet1.getLength()));</span><br><span class="line">        socket.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -478,23 +473,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java连接数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
