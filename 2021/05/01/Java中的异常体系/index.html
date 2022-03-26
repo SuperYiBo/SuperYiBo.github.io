@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>mysql | Supercx博客</title>
+  <title>Java中的异常体系 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql">
+  <meta name="description" content="Java中的异常体系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql">
-<meta property="og:url" content="http://example.com/2022/02/15/mysql/index.html">
+<meta property="og:title" content="Java中的异常体系">
+<meta property="og:url" content="http://example.com/2021/05/01/Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="mysql">
+<meta property="og:description" content="Java中的异常体系">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-25T08:23:15.428Z">
+<meta property="article:published_time" content="2021-04-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-26T07:33:29.020Z">
 <meta property="article:author" content="Xiaochao">
-<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="Java中的异常体系">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Supercx博客" type="application/atom+xml">
@@ -169,44 +169,33 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mysql" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java中的异常体系" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mysql
+      Java中的异常体系
     </h1>
   
 
         
-        <a href="/2022/02/15/mysql/" class="archive-article-date">
-  	<time datetime="2022-02-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-15</time>
+        <a href="/2021/05/01/Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/" class="archive-article-date">
+  	<time datetime="2021-04-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><span id="more"></span>
-<p>连接到mysql指令mysql -h 主机ip -p端口 -u 用户名 -p 密码</p>
-<p>1、-p密码不要有空格</p>
-<p>2、-p后面没密码，回车后会要求输密码</p>
-<p>3、如果没有写-h主机，默认是本机</p>
-<p>4、如果没有写-p端口，默认是3306 </p>
-<h4 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a>库操作</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE hsp_db01; #创库</span><br><span class="line"></span><br><span class="line">DROP DATABASE hsp_db01; #删库</span><br><span class="line"></span><br><span class="line">CREATE DATABASE hsp_db02 CHARACTER SET utf8 #字符集</span><br><span class="line"></span><br><span class="line">SHOW DATABASES；#库信息</span><br></pre></td></tr></table></figure>
+        <h1 id="Java中的异常体系"><a href="#Java中的异常体系" class="headerlink" title="Java中的异常体系"></a>Java中的异常体系</h1><span id="more"></span>
 
-
-
-<h5 id="备份数据库-输入到指定位置（备份和恢复都要在dos中执行）"><a href="#备份数据库-输入到指定位置（备份和恢复都要在dos中执行）" class="headerlink" title="备份数据库,输入到指定位置（备份和恢复都要在dos中执行）"></a>备份数据库,输入到指定位置（备份和恢复都要在dos中执行）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p 数据库名 表1 表2&gt;d:\\dadabase.sql</span><br></pre></td></tr></table></figure>
-
-<h5 id="表的增删改查"><a href="#表的增删改查" class="headerlink" title="表的增删改查"></a>表的增删改查</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE t03( num FLOAT,  num2 DOUBLE,  num3 DECIMAL(30,20)); #创建表</span><br><span class="line"></span><br><span class="line">INSERT INTO t03 VALUES(  12312.1231244,12312.12312,12312.1231);  #插入数据</span><br><span class="line"></span><br><span class="line">SELECT * FROM t03;  #查询</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p>Java中的所有异常都来自顶级父类Throwable。</p>
+<p>Throwable下有两个子类Exception和Error。</p>
+<p>Error是程序无法处理的错误，一旦出现这个错误，则程序将被迫停止运行。</p>
+<p>Exception不会导致程序停止，又分为两个部分RunTimeException运行时异常和CheckedException检查异常。</p>
+<p>RunTimeException常常发生在程序运行过程中，会导致程序当前线程执行失败。CheckedException常常发生在程序编译过程中，会导致程序编译不通过。</p>
 
       
 
@@ -251,7 +240,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Java中的异常体系</a>
         		</li>
       		
 		</ul>
@@ -307,7 +296,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/022/02/15/mysql/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/021/05/01/Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +311,18 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2022/02/15/JDK%20JRE%20IVM/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/01/%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%89%98%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JDK JRE JVM
+          双亲委托模型
         
       </div>
     </a>
   
   
-    <a href="/2022/02/15/2022-1-1-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">面向对象理解</div>
+    <a href="/2021/03/15/mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,7 +349,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql"><span class="toc-number">1.</span> <span class="toc-text">mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%BE%93%E5%85%A5%E5%88%B0%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%EF%BC%88%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D%E9%83%BD%E8%A6%81%E5%9C%A8dos%E4%B8%AD%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="toc-number">1.0.0.1.1.</span> <span class="toc-text">备份数据库,输入到指定位置（备份和恢复都要在dos中执行）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">1.0.0.1.2.</span> <span class="toc-text">表的增删改查</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">Java中的异常体系</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -537,6 +526,50 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java中的异常体系</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Java类加载器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sleep()、wait()、join()、yield()的区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">双亲委托模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">HashMap和HashTable有什么区别？其底层实现是什么？</a>
               </li>
             
             <div class="clearfix"></div>
