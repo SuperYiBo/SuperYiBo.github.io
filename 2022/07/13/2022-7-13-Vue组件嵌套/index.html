@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Vue组件嵌套 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Vue组件嵌套school组件中嵌套student组件，school和hello交给app组件注册，最终app组件注册容器 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737">
+  <meta name="description" content="Vue组件嵌套">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue组件嵌套">
 <meta property="og:url" content="http://example.com/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="Vue组件嵌套school组件中嵌套student组件，school和hello交给app组件注册，最终app组件注册容器 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737">
+<meta property="og:description" content="Vue组件嵌套">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-13T08:29:06.919Z">
+<meta property="article:modified_time" content="2022-07-21T15:19:47.410Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -188,7 +188,9 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Vue组件嵌套"><a href="#Vue组件嵌套" class="headerlink" title="Vue组件嵌套"></a>Vue组件嵌套</h4><p>school组件中嵌套student组件，school和hello交给app组件注册，最终app组件注册容器</p>
+        <h4 id="Vue组件嵌套"><a href="#Vue组件嵌套" class="headerlink" title="Vue组件嵌套"></a>Vue组件嵌套</h4><span id="more"></span>
+
+<p>school组件中嵌套student组件，school和hello交给app组件注册，最终app组件注册容器</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const student = Vue.extend(&#123;</span><br><span class="line">        name: &#x27;student&#x27;,   //标签名</span><br><span class="line">        template: `</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">          &lt;h2&gt;学生姓名：&#123;&#123; name &#125;&#125;&lt;/h2&gt;</span><br><span class="line">          &lt;h2&gt;学生年龄：&#123;&#123; age &#125;&#125;&lt;/h2&gt;</span><br><span class="line">          &lt;/div&gt;`,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                name: &#x27;张三&#x27;,</span><br><span class="line">                age: 18</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    const school = Vue.extend(&#123;</span><br><span class="line">        template: `</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">          &lt;h2&gt;学校名称:&#123;&#123; name &#125;&#125;&lt;/h2&gt;</span><br><span class="line">          &lt;h2&gt;教师名称:&#123;&#123; teacher &#125;&#125;&lt;/h2&gt;</span><br><span class="line">          &lt;student&gt;&lt;/student&gt;</span><br><span class="line">          &lt;/div&gt;`,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                name: &#x27;尚硅谷&#x27;,</span><br><span class="line">                teacher: &#x27;老王&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        //组件嵌套，前提是嵌套组件在前</span><br><span class="line">        components: &#123;</span><br><span class="line">            student</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    const hello = Vue.extend(&#123;</span><br><span class="line">        template: `</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">          &lt;h2&gt;&#123;&#123; name &#125;&#125;&lt;/h2&gt;</span><br><span class="line">          &lt;/div&gt;`,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                name: &#x27;hello&#x27;,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    //app组件注册所有组件信息</span><br><span class="line">    const app = Vue.extend(&#123;</span><br><span class="line">        name:&#x27;app&#x27;,</span><br><span class="line">        template: `</span><br><span class="line">          &lt;div&gt;</span><br><span class="line">          &lt;hello&gt;&lt;/hello&gt;</span><br><span class="line">          &lt;school&gt;&lt;/school&gt;</span><br><span class="line">          &lt;/div&gt;`,</span><br><span class="line">        components:&#123;</span><br><span class="line">            hello,</span><br><span class="line">            school</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        template:`&lt;app&gt;&lt;/app&gt;`,</span><br><span class="line">        components: &#123;</span><br><span class="line">           app,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
@@ -295,11 +297,11 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2022/07/13/2022-7-13-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vm生命周期 8个（4对）钩子函数
+          VueComponent对象
         
       </div>
     </a>
@@ -445,11 +447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,10 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -489,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,6 +504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,19 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,7 +591,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,6 +607,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -617,15 +619,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>列表过滤 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="列表过滤通过computed或者是watch进行列表数据模糊搜索 123456789101112131415161718192021222324252627282930313233343536373839404142434445&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue@2&quot;&gt;&lt;&#x2F;script&gt;&lt;di">
+  <meta name="description" content="列表过滤">
 <meta property="og:type" content="article">
 <meta property="og:title" content="列表过滤">
 <meta property="og:url" content="http://example.com/2022/07/12/2022-7-12-%E5%88%97%E8%A1%A8%E8%BF%87%E6%BB%A4/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="列表过滤通过computed或者是watch进行列表数据模糊搜索 123456789101112131415161718192021222324252627282930313233343536373839404142434445&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vue@2&quot;&gt;&lt;&#x2F;script&gt;&lt;di">
+<meta property="og:description" content="列表过滤">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T06:57:40.459Z">
+<meta property="article:modified_time" content="2022-07-21T15:18:54.249Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -188,7 +188,9 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="列表过滤"><a href="#列表过滤" class="headerlink" title="列表过滤"></a>列表过滤</h4><p>通过computed或者是watch进行列表数据模糊搜索</p>
+        <h4 id="列表过滤"><a href="#列表过滤" class="headerlink" title="列表过滤"></a>列表过滤</h4><span id="more"></span>
+
+<p>通过computed或者是watch进行列表数据模糊搜索</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;人员列表&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type=&quot;text&quot; placeholder=&quot;请输入搜索名字&quot; v-model=&quot;keyword&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;p in filPersons&quot; :key=&quot;p.id&quot;&gt;</span><br><span class="line">            &#123;&#123;p.name&#125;&#125;--&#123;&#123;p.age&#125;&#125;--&#123;&#123;p.sex&#125;&#125;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            keyword:&#x27;&#x27;,</span><br><span class="line">            persons:[</span><br><span class="line">                &#123;id:1,name:&#x27;马冬梅&#x27;,age:18,sex:&#x27;女&#x27;&#125;,</span><br><span class="line">                &#123;id:2,name:&#x27;周冬雨&#x27;,age:19,sex:&#x27;女&#x27;&#125;,</span><br><span class="line">                &#123;id:3,name:&#x27;周杰伦&#x27;,age:20,sex:&#x27;男&#x27;&#125;,</span><br><span class="line">                &#123;id:4,name:&#x27;赵伦&#x27;,age:20,sex:&#x27;男&#x27;&#125;</span><br><span class="line">            ],</span><br><span class="line">            // filPersons:[]</span><br><span class="line">        &#125;,</span><br><span class="line">      // watch:&#123;</span><br><span class="line">      //       keyword:&#123;</span><br><span class="line">      //           immediate:true,</span><br><span class="line">      //           handler(val)&#123;</span><br><span class="line">      //               this.filPersons=this.persons.filter((p)=&gt;&#123;</span><br><span class="line">      //                   return p.name.indexOf(val)!==-1</span><br><span class="line">      //               &#125;)</span><br><span class="line">      //           &#125;</span><br><span class="line">      //       &#125;</span><br><span class="line">      // &#125;,</span><br><span class="line">      computed:&#123;</span><br><span class="line">            filPersons()&#123;</span><br><span class="line">                return this.persons.filter((p)=&gt;&#123;</span><br><span class="line">                    return p.name.indexOf(this.keyword) !== -1</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
@@ -295,18 +297,18 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/12/2022-7-12-%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          收集表单数据
+          列表排序
         
       </div>
     </a>
   
   
-    <a href="/2022/07/12/2022-7-12-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">条件渲染</div>
+    <a href="/2022/07/12/2022-7-12-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">列表渲染</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -445,11 +447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,10 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -489,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,6 +504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,19 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,7 +591,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,6 +607,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -617,15 +619,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>

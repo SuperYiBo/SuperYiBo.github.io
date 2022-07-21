@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>VueComponent对象 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="VueComponent对象VueComponent是在调用Vue.extend（{}）时默认调用的函数，和Vm构造大致一样，简称VC。 每次启动Vue.extend调用的函数对象不一致，都是全新的 重要的内置关系：vm和vc 123VueComponent.prototype._proto_  &#x3D;&#x3D;&#x3D; Vue.prototype&#x2F;&#x2F;_proto_一般指向object对象，在底层VueCompon">
+  <meta name="description" content="VueComponent对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VueComponent对象">
 <meta property="og:url" content="http://example.com/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="VueComponent对象VueComponent是在调用Vue.extend（{}）时默认调用的函数，和Vm构造大致一样，简称VC。 每次启动Vue.extend调用的函数对象不一致，都是全新的 重要的内置关系：vm和vc 123VueComponent.prototype._proto_  &#x3D;&#x3D;&#x3D; Vue.prototype&#x2F;&#x2F;_proto_一般指向object对象，在底层VueCompon">
+<meta property="og:description" content="VueComponent对象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-13T15:24:04.529Z">
+<meta property="article:modified_time" content="2022-07-21T15:19:34.915Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -188,7 +188,9 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="VueComponent对象"><a href="#VueComponent对象" class="headerlink" title="VueComponent对象"></a>VueComponent对象</h4><p>VueComponent是在调用Vue.extend（{}）时默认调用的函数，和Vm构造大致一样，简称VC。</p>
+        <h4 id="VueComponent对象"><a href="#VueComponent对象" class="headerlink" title="VueComponent对象"></a>VueComponent对象</h4><span id="more"></span>
+
+<p>VueComponent是在调用Vue.extend（{}）时默认调用的函数，和Vm构造大致一样，简称VC。</p>
 <p>每次启动Vue.extend调用的函数对象不一致，都是全新的</p>
 <p>重要的内置关系：vm和vc</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">VueComponent.prototype._proto_  === Vue.prototype</span><br><span class="line">//_proto_一般指向object对象，在底层VueComponent.prototype._proto_指向vue.prototype，从而vm中的属性方法在vueComponent中也能使用====&gt;组件中Vue.extend一样可以调用Vue对象中方法</span><br><span class="line">区别：VueComponent中不能用el并且data不能写成对象，要写成函数</span><br></pre></td></tr></table></figure>
@@ -309,8 +311,8 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     </a>
   
   
-    <a href="/2022/07/13/2022-7-13-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vm生命周期 8个（4对）钩子函数</div>
+    <a href="/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue组件嵌套</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -449,11 +451,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,10 +483,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -493,11 +491,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,6 +508,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,19 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,7 +547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,7 +567,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,7 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +587,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -597,7 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,6 +611,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -621,15 +623,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>

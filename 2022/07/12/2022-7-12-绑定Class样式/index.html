@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>绑定Class样式 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="绑定Class样式1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162    &lt;style&gt;        .happy &amp;#123;            border: 4px solid red;">
+  <meta name="description" content="绑定Class样式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="绑定Class样式">
 <meta property="og:url" content="http://example.com/2022/07/12/2022-7-12-%E7%BB%91%E5%AE%9AClass%E6%A0%B7%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="绑定Class样式1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162    &lt;style&gt;        .happy &amp;#123;            border: 4px solid red;">
+<meta property="og:description" content="绑定Class样式">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-12T03:15:44.184Z">
+<meta property="article:modified_time" content="2022-07-21T15:18:23.142Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -188,7 +188,9 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="绑定Class样式"><a href="#绑定Class样式" class="headerlink" title="绑定Class样式"></a>绑定Class样式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .happy &#123;</span><br><span class="line">            border: 4px solid red;</span><br><span class="line">            background-color: burlywood;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .sad &#123;</span><br><span class="line">            border: 4px solid green;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .basic &#123;</span><br><span class="line">            border: 4px solid oldlace;</span><br><span class="line">            background-color: rebeccapurple;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .normal &#123;</span><br><span class="line">            border: 4px solid darkblue;</span><br><span class="line">            background-color: darkcyan;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，字符串写法，适用于：样式类名不确定，需要动态指定--&gt;</span><br><span class="line">    &lt;div :class=&quot;mood&quot; @click=&quot;changeMood&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，数组写法，适用于：要绑定的样式个数不确定，名字不确定--&gt;</span><br><span class="line">    &lt;div :class=&quot;classArr&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，对象写法，适用于：绑定样式个数确定，名字确定--&gt;</span><br><span class="line">      &lt;div  :class=&quot;classObj&quot; &gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，对象写法，适用于：绑定样式个数确定，名字确定--&gt;</span><br><span class="line">      &lt;div  :style=&quot;styleObj&quot; &gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            name: &#x27;张三&#x27;,</span><br><span class="line">            mood: &#x27;happy&#x27;,</span><br><span class="line">            classArr: [&#x27;happy&#x27;, &#x27;sad&#x27;],</span><br><span class="line">            classObj:&#123;</span><br><span class="line">              happy:false,</span><br><span class="line">              sad:true</span><br><span class="line">            &#125;,</span><br><span class="line">            styleObj:&#123;</span><br><span class="line">                fontSize: &#x27;40px&#x27;,</span><br><span class="line">                color: &#x27;red&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeMood() &#123;</span><br><span class="line">                const arr = [&#x27;happy&#x27;, &#x27;sad&#x27;, &#x27;normal&#x27;]</span><br><span class="line">                const index = Math.floor((Math.random() * 3))   //取随机数0，1，2 floor向下取整</span><br><span class="line">                this.mood = arr[index]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h4 id="绑定Class样式"><a href="#绑定Class样式" class="headerlink" title="绑定Class样式"></a>绑定Class样式</h4><span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .happy &#123;</span><br><span class="line">            border: 4px solid red;</span><br><span class="line">            background-color: burlywood;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .sad &#123;</span><br><span class="line">            border: 4px solid green;</span><br><span class="line">            background-color: blue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .basic &#123;</span><br><span class="line">            border: 4px solid oldlace;</span><br><span class="line">            background-color: rebeccapurple;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .normal &#123;</span><br><span class="line">            border: 4px solid darkblue;</span><br><span class="line">            background-color: darkcyan;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，字符串写法，适用于：样式类名不确定，需要动态指定--&gt;</span><br><span class="line">    &lt;div :class=&quot;mood&quot; @click=&quot;changeMood&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，数组写法，适用于：要绑定的样式个数不确定，名字不确定--&gt;</span><br><span class="line">    &lt;div :class=&quot;classArr&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，对象写法，适用于：绑定样式个数确定，名字确定--&gt;</span><br><span class="line">      &lt;div  :class=&quot;classObj&quot; &gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line">    &lt;!--  绑定Class样式，对象写法，适用于：绑定样式个数确定，名字确定--&gt;</span><br><span class="line">      &lt;div  :style=&quot;styleObj&quot; &gt;&#123;&#123;name&#125;&#125;&lt;/div&gt;&lt;br/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &#x27;#root&#x27;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            name: &#x27;张三&#x27;,</span><br><span class="line">            mood: &#x27;happy&#x27;,</span><br><span class="line">            classArr: [&#x27;happy&#x27;, &#x27;sad&#x27;],</span><br><span class="line">            classObj:&#123;</span><br><span class="line">              happy:false,</span><br><span class="line">              sad:true</span><br><span class="line">            &#125;,</span><br><span class="line">            styleObj:&#123;</span><br><span class="line">                fontSize: &#x27;40px&#x27;,</span><br><span class="line">                color: &#x27;red&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeMood() &#123;</span><br><span class="line">                const arr = [&#x27;happy&#x27;, &#x27;sad&#x27;, &#x27;normal&#x27;]</span><br><span class="line">                const index = Math.floor((Math.random() * 3))   //取随机数0，1，2 floor向下取整</span><br><span class="line">                this.mood = arr[index]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>注意：class样式属性不能抽能重复！</p>
 
@@ -295,11 +297,11 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          过滤器
+          收集表单数据
         
       </div>
     </a>
@@ -445,11 +447,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,10 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -489,11 +487,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,6 +504,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,19 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,7 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,7 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +571,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,7 +591,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,6 +607,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -617,15 +619,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>

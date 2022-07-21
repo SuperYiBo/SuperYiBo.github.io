@@ -166,19 +166,19 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2022-7-12-监视属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-12-过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">监视属性</a>
+      <a class="article-title" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">过滤器</a>
     </h1>
   
 
         
-        <a href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/" class="archive-article-date">
+        <a href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/" class="archive-article-date">
   	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
 </a>
         
@@ -186,38 +186,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h4><p>天气切换案例：@click&#x3D;”isHot &#x3D; !isHot” 简单可以直接写，不用调方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">           info()&#123;</span><br><span class="line">               return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">                changeWeather()&#123;</span><br><span class="line">                    this.isHot=!this.isHot</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>监视天气变化：newValue为新值，oldvalue为原值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // watch:&#123;</span><br><span class="line">        //     isHot:&#123;</span><br><span class="line">        //         // 初始化属性时，调用handler</span><br><span class="line">        //         immediate:true,</span><br><span class="line">        //         handler(newValue,oldValue)&#123;</span><br><span class="line">        //             console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        //         &#125;</span><br><span class="line">        //</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">        // 初始化属性时，调用handler</span><br><span class="line">        immediate:true,</span><br><span class="line">        handler(newValue,oldValue)&#123;</span><br><span class="line">            console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>监听属性，<strong>深度监视</strong>:带有数据结构的‘numbers.a’:   </p>
-<p>deep：true   属性内部深层数据发生变化，便触发监听</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.a&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.a++&quot;&gt;a++&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.b&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.b++&quot;&gt;b++&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                a:1,</span><br><span class="line">                b:2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch:&#123;</span><br><span class="line">            isHot:&#123;</span><br><span class="line">                // 初始化属性时，调用handler</span><br><span class="line">                immediate:true,</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            &#x27;numbers.a&#x27;:&#123;</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;a被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                deep:true,</span><br><span class="line">                handler()&#123;</span><br><span class="line">                    console.log(&quot;numbers改变了&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    // vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">    //     // 初始化属性时，调用handler</span><br><span class="line">    //     immediate:true,</span><br><span class="line">    //     handler(newValue,oldValue)&#123;</span><br><span class="line">    //         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">    //     &#125;</span><br><span class="line"></span><br><span class="line">    // &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>简写形式</strong>：前提imediate:true和deep:true不能启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isHot(newValue,oldValue)&#123;</span><br><span class="line">                  console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">              &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(&#x27;isHot&#x27;,function(newValue,oldValue)&#123;</span><br><span class="line">         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>属性监听和计算属性比较：</p>
-<p>姓名案例用监听属性实现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">            fullName:&#x27;张-三&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        // computed: &#123;</span><br><span class="line">        //     fullName: &#123;</span><br><span class="line">        //         get() &#123;</span><br><span class="line">        //             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //         &#125;,</span><br><span class="line">        //         set(value) &#123;</span><br><span class="line">        //             const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">        //             this.firstName = arr[0]</span><br><span class="line">        //             this.lastName = arr[1]</span><br><span class="line">        //         &#125;</span><br><span class="line">        //     &#125;</span><br><span class="line">        //</span><br><span class="line">        // &#125;</span><br><span class="line">        // computed:&#123;</span><br><span class="line">        //     fullName()&#123;</span><br><span class="line">        //         return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">        //val传的新值</span><br><span class="line">        watch:&#123;</span><br><span class="line">            firstName(val)&#123;</span><br><span class="line">                setTimeout(()=&gt;&#123;</span><br><span class="line">                    this.fullName=val+&#x27;-&#x27;+this.lastName</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;,</span><br><span class="line">            lastName(val)&#123;</span><br><span class="line">                this.fullName=this.firstName+&#x27;-&#x27;+val</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>总结</strong></p>
-<p>computed和watch区别：</p>
-<ul>
-<li>computed能完成的watch都能完成</li>
-<li>watch能够执行异步操作，如时间延长</li>
-<li>关于箭头函数：被Vue管理的函数最好写成普通函数，this就指向Vue;  watch必须写成箭头函数，this才指向Vue</li>
-</ul>
-
+        <h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4>
+        
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/#more">more >></a>
+        
       
 
       
@@ -229,7 +201,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -279,10 +251,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">&lt;!--    阻止默认事件  .prevent--&gt;</span><br><span class="line">    &lt;a href=&quot;https://www.baidu.com&quot; @click.prevent=&quot;showInfo&quot;&gt;点我提示信息1&lt;/a&gt;</span><br><span class="line">&lt;!--    阻止冒泡  .stop--&gt;</span><br><span class="line">    &lt;div @click=&quot;showInfo&quot;&gt;</span><br><span class="line">        &lt;button @click.stop=&quot;showInfo&quot;&gt;</span><br><span class="line">            点我提示信息2</span><br><span class="line">        &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;!--    只触发一次 .once--&gt;</span><br><span class="line">    &lt;button @click.once=&quot;showInfo&quot;&gt;</span><br><span class="line">        点我提示信息3</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            name:&#x27;尚硅谷&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            showInfo(e)&#123;</span><br><span class="line">                alert(&quot;hello&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>小技巧：@click.prevent.stop   表示同时处理默认事件和冒泡</p>
-
+        <h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4>
+        
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6/#more">more >></a>
+        
       
 
       
@@ -344,12 +316,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;欢迎来到&#123;&#123;name&#125;&#125;学习&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;showInfo1&quot;&gt;点我提示信息1&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;showInfo2($event,66)&quot;&gt;点我提示信息2&lt;/button&gt;  //$event鼠标事件</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            name:&#x27;尚硅谷&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            showInfo1()&#123;</span><br><span class="line">                alert(&quot;你好！&quot;)</span><br><span class="line">            &#125;,</span><br><span class="line">            showInfo2(event,number)&#123;</span><br><span class="line">                alert(&quot;你好！&quot;)</span><br><span class="line">                console.log(number)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>总结：v-on:click   &#x3D;&#x3D; @click</p>
-<p>​            回调函数配置在methods：中</p>
-<p>​            配置函数中不带箭头函数，this就指向vm</p>
-
+        <h4 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h4>
+        
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/#more">more >></a>
+        
       
 
       
@@ -362,85 +332,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/11/2022-7-11-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-11-键盘事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/">键盘事件</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><p>键盘事件：点击相应键盘才能触发的事件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;欢迎来到&#123;&#123;name&#125;&#125;学习&lt;/h2&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; @keyup.enter=&quot;showInfo()&quot;&gt;&lt;/input&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            name:&#x27;尚硅谷&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            showInfo()&#123;</span><br><span class="line">                alert(&quot;你好！&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>常用键盘事件：</p>
-<ul>
-<li>回车 &#x3D;&gt;enter</li>
-<li>删除 &#x3D;&gt;delete</li>
-<li>退出 &#x3D;&gt;esc</li>
-<li>空格 &#x3D;&gt;space</li>
-<li>换行 &#x3D;&gt;tab(特殊，配合keydown使用)</li>
-<li>上 &#x3D;&gt;up</li>
-<li>下 &#x3D;&gt;down</li>
-<li>左 &#x3D;&gt;left</li>
-<li>右 &#x3D;&gt;right</li>
-</ul>
-<p>特殊配合keydown使用：ctrl,alt,shift,meta</p>
-<p>小技巧：keyup.ctrl.y  同时按住ctrl+y触发</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
         </p>
       
 
@@ -490,19 +381,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h4><p>姓名案例，实现属性计算操作，实现绑定（插值+methods方法实现）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;firstName + &#x27;-&#x27; + lastName&#125;&#125;&lt;/span&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            firstName:&#x27;张&#x27;,</span><br><span class="line">            lastName:&#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            fullName()&#123;</span><br><span class="line">                return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>采用计算属性方法赋值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            fullName: &#123;</span><br><span class="line">                get() &#123;</span><br><span class="line">                    return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">                &#125;,</span><br><span class="line">                set(value) &#123;</span><br><span class="line">                    const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">                    this.firstName = arr[0]</span><br><span class="line">                    this.lastName = arr[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>插值语法直接调fullName,会去调用计算属性中的get方法，并且在不改变依赖属性（firstName和lastName)，前提下get只会调用一次，后面会进行缓存，反之。。。</p>
-<p>set方法赋值必须改变以来属性值，才能实现真正改变</p>
-<p>计算属性简写：</p>
-<p>前提是保证只是读取，不做修改即无set(),注意调用任然采用,不能加（）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">         fullName()&#123;</span><br><span class="line">             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-
+        <h4 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h4>
+        
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/#more">more >></a>
+        
       
 
       
@@ -544,15 +426,30 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-Layui表单-编辑弹出层-数据回显··" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-11-键盘事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/">键盘事件</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-Layui表单-编辑弹出层-数据回显··"><a href="#title-Layui表单-编辑弹出层-数据回显··" class="headerlink" title="title:Layui表单 编辑弹出层 数据回显··"></a>title:Layui表单 编辑弹出层 数据回显··</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">                          type: &quot;post&quot;,</span><br><span class="line">                          url: &quot;EditPost&quot;,</span><br><span class="line">                          data: &#123; data: JSON.stringify(field), kid: kid &#125;,</span><br><span class="line">                          dataType: &quot;json&quot;,</span><br><span class="line">                          success: function (ret) &#123;</span><br><span class="line">                              if (ret.code == &quot;0&quot;) &#123;</span><br><span class="line">                                  table.reload(&#x27;LAY-Fd_sys_logintoken-manage&#x27;); //数据刷新</span><br><span class="line">                                  layer.close(index); //关闭弹层</span><br><span class="line">                              &#125;</span><br><span class="line">                              else &#123;</span><br><span class="line">                                  if (ret.msg == null)</span><br><span class="line">                                      layer.msg(&quot;提交失败,服务器未返回失败信息&quot;);</span><br><span class="line">                                  else</span><br><span class="line">                                      layer.msg(ret.msg);</span><br><span class="line">                              &#125;</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                      //table.reload(&#x27;LAY-Fd_sys_logintoken-front-submit&#x27;); //数据刷新</span><br><span class="line">                      //layer.close(index); //关闭弹层</span><br><span class="line">                  &#125;);</span><br><span class="line"></span><br><span class="line">                  submit.trigger(&#x27;click&#x27;);</span><br><span class="line">              &#125;</span><br><span class="line">              , success: function ( layero,index) &#123;</span><br><span class="line">                    var body = layer.getChildFrame(&#x27;body&#x27;, index); //巧妙的地方在这里哦</span><br><span class="line">                    body.find(&quot;input[name=userId]&quot;).val(data.userId);</span><br><span class="line">                    body.find(&quot;input[name=loginAccount]&quot;).val(data.loginAccount);</span><br><span class="line">                    body.find(&quot;input[name=token]&quot;).val(data.token);</span><br><span class="line">                    body.find(&quot;input[name=indateBegin]&quot;).val(data.indateBegin);</span><br><span class="line">                    body.find(&quot;input[name=indateEnd]&quot;).val(data.indateEnd);</span><br><span class="line">                    body.find(&quot;input[name=states]&quot;).val(data.states);</span><br><span class="line">                    form.render(&quot;text&quot;);</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
-
-
+        <h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4>
+        
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/#more">more >></a>
+        
       
 
       
@@ -564,7 +461,72 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/10/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Layui表单-编辑弹出层-数据回显··" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/">Layui表单 编辑弹出层 数据回显</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/" class="archive-article-date">
+  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Layui表单-编辑弹出层-数据回显"><a href="#Layui表单-编辑弹出层-数据回显" class="headerlink" title="Layui表单 编辑弹出层 数据回显"></a>Layui表单 编辑弹出层 数据回显</h4>
+        
+          <a class="article-more-a" href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/">展开全文 >></a>
         </p>
       
 
@@ -614,54 +576,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vue-cli-项目目录结构"><a href="#Vue-cli-项目目录结构" class="headerlink" title="Vue-cli 项目目录结构"></a>Vue-cli 项目目录结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g   #全局安装npm</span><br></pre></td></tr></table></figure>
-
-<p>查看vue-cli是否安装成功</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue list</span><br></pre></td></tr></table></figure>
-
-<p><img src="D:\typora-user-images\image-20220708095659758.png" alt="image-20220708095659758"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vue init webpack my-project  #创建脚手架项目，my-project为项目名</span><br><span class="line">npm install 安装依赖</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev   #启动项目</span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://img-blog.csdn.net/20171126152635816" alt="img"></p>
-<p><strong>文件结构细分</strong><br><strong>1.build——[webpack配置]</strong><br>build文件主要是webpack的配置，主要启动文件是dev-server.js，当我们输入npm run dev首先启动的就是dev-server.js，它会去检查node及npm版本，加载配置文件，启动服务。</p>
-<p><img src="https://img-blog.csdn.net/20171126152702891" alt="img"></p>
-<p><strong>2.config——[vue项目配置]</strong><br>config文件主要是项目相关配置，我们常用的就是当端口冲突时配置监听端口，打包输出路径及命名等</p>
-<p><img src="https://img-blog.csdn.net/20171126152742787" alt="img"></p>
-<p><strong>3.node_modules——[依赖包]</strong></p>
-<p>node_modules里面是项目依赖包，其中包括很多基础依赖，自己也可以根据需要安装其他依赖。安装方法为打开cmd，进入项目目录，输入npm install [依赖包名称],回车。</p>
-<p>在两种情况下我们会自己去安装依赖：</p>
-<p>（1）项目运行缺少该依赖包：例如项目加载外部css会用到的css-loader，路由跳转vue-loader等（安装方法示例：npm install css-loader）</p>
-<p>（2）安装插件：如vux（基于WEUI的移动端组件库），vue-swiper（轮播插件</p>
-<p>注：有时会安装指定依赖版本，需在依赖包名称后加上版本号信息，如安装11.1.4版本的vue-loader，输入npm install <a href="mailto:&#x76;&#x75;&#101;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x31;&#49;&#46;&#x31;&#46;&#52;">&#x76;&#x75;&#101;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x31;&#49;&#46;&#x31;&#46;&#52;</a></p>
-<p><strong>4.src——[项目核心文件]</strong><br>项目核心文件前面已经进行了简单的说明，接下来重点讲解main.js，App.vue,及router的index.js</p>
-<p>4.1 index.html——[主页]<br>index.html如其他html一样，但一般只定义一个空的根节点，在main.js里面定义的实例将挂载在根节点下，内容都通过vue组件来填充</p>
-<p><img src="https://img-blog.csdn.net/20171126152954909" alt="在这里插入图片描述"></p>
-<p>4.2 App.vue——[根组件]<br>一个vue页面通常由三部分组成:模板(template)、js(script)、样式(style)</p>
-<p><img src="https://img-blog.csdn.net/20171126153026332" alt="在这里插入图片描述"></p>
-<p>【template】</p>
-<p>其中模板只能包含一个父节点，也就是说顶层的div只能有一个（例如上图，父节点为#app的div，其没有兄弟节点）</p>
-<p>是子路由视图，后面的路由页面都显示在此处</p>
-<p>打一个比喻吧,类似于一个插槽，跳转某个路由时，该路由下的页面就插在这个插槽中渲染显示</p>
-<p>【script】</p>
-<p>vue通常用es6来写，用export default导出，其下面可以包含数据data，生命周期(mounted等)，方法(methods)等，具体语法请看vue.js文档，在后面我也会通过例子来说明。</p>
-<p>【style】</p>
-<p>样式通过style标签</p>
-<p>如要引入外部css文件，首先需给项目安装css-loader依赖包，打开cmd，进入项目目录，输入npm install css-loader,回车。安装完成后，就可以在style标签下import所需的css文件，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt; </span><br><span class="line">	import &#x27;./assets/css/public.css&#x27;  </span><br><span class="line">&lt;/style&gt;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这样，我们就可以把style下的样式封装起来，写到css文件夹，再引入到页面使用，整个vue页面也看上去更简洁。</p>
-<p>4.3 main.js——[入口文件]<br>main.js主要是引入vue框架，根组件及路由设置，并且定义vue实例，下图中的</p>
-<p>components:{App}就是引入的根组件App.vue</p>
-<p>后期还可以引入插件，当然首先得安装插件。<br><img src="https://img-blog.csdn.net/20171126153302816" alt="在这里插入图片描述"></p>
-<p>4.4 router——[路由配置]<br>router文件夹下，有一个index.js，即为路由配置文件</p>
-<p><img src="https://img-blog.csdn.net/20171126153359275" alt="在这里插入图片描述"></p>
-<p>这里定义了路径为’&#x2F;‘的路由，该路由对应的页面是Hello组件，所以当我们在浏览器url访问<a target="_blank" rel="noopener" href="http://localhost:8080/#/%E6%97%B6%E5%B0%B1%E6%B8%B2%E6%9F%93%E7%9A%84Hello%E7%BB%84%E4%BB%B6">http://localhost:8080/#/时就渲染的Hello组件</a></p>
-<p>类似的，我们可以设置多个路由，‘&#x2F;index’,’&#x2F;list’之类的，当然首先得引入该组件，再为该组件设置路由。</p>
-
+        <h3 id="Vue-cli-项目目录结构"><a href="#Vue-cli-项目目录结构" class="headerlink" title="Vue-cli 项目目录结构"></a>Vue-cli 项目目录结构</h3>
+        
+          <a class="article-more-a" href="/2022/07/08/2022-7-8-Vue-cli%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/#more">more >></a>
+        
       
 
       
@@ -734,119 +652,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vue组件应用"><a href="#Vue组件应用" class="headerlink" title="Vue组件应用"></a>Vue组件应用</h3><h3 id="实例化多个Vue对象"><a href="#实例化多个Vue对象" class="headerlink" title="实例化多个Vue对象"></a>实例化多个Vue对象</h3><p>用new创建多个vue对象并命名，<strong>可以通过变量相互访问</strong><br>例子：对象2修改对象1的name变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 第一个根元素 --&gt;</span><br><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;这里是：&#123;&#123;name&#125;&#125;&lt;/div&gt; </span><br><span class="line"></span><br><span class="line">&lt;!-- 第二个根元素 --&gt;</span><br><span class="line">&lt;div id=&quot;vue-app-two&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是：&#123;&#123;name&#125;&#125;&lt;/p&gt;&lt;br&gt;</span><br><span class="line">    &lt;button @click=&quot;changeName&quot;&gt;change-one-name&lt;/button&gt;</span><br><span class="line">    &lt;!-- 点击后修改vue-app-one的name值--&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> // 第一个vue对象</span><br><span class="line">var one = new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        &quot;name&quot;:&quot;ccy1&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"> // 第二个vue对象</span><br><span class="line">var two = new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-two&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        &quot;name&quot;:&quot;ccy2&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        // 修改vue-app-one的name为&#x27;ccy333&#x27;</span><br><span class="line">        changeName:function()&#123;</span><br><span class="line">            one.name = &#x27;ccy333&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h2><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="定义与使用"><a href="#定义与使用" class="headerlink" title="定义与使用"></a>定义与使用</h3><blockquote>
-<ol>
-<li>定义全局组件，需给组件一个名字，调用时，将组件名当作标签名使用；相当于自定义标签，该标签下可以包含很多子html标签；</li>
-<li>这些子html标签定义在组件的template属性中，每次调用该组件，都渲染template里的标签</li>
-<li>template里必须只有一个根元素</li>
-<li>在组件中，data是函数，将数据return回去</li>
-<li>依然可以用this来调用data中定义的数据</li>
-</ol>
-</blockquote>
-<p>例子：</p>
-<p><strong>定义组件：</strong></p>
-<blockquote>
-<p>① 定义一个组件，命名为my-component<br>② 其中包含数据：name和方法：changeName<br>③ 渲染出的html效果有一个p标签，包含一个按钮，点击按钮时，修改name<br>④ 命名规范：camelCase (驼峰命名法) 与kebab-case (短横线分隔命名)</p>
-<ul>
-<li>当写成标签时，遇到有大写字母的命名，需要改成小写并用横杆链接前后两个部分，如定义组件时命名为myComponent，写成标签时应写成<my-component>；</li>
-<li>组件定义时也可以用横杆法命名；</li>
-<li>如果定义时用myComponent，标签用<my-component>是OK的，系统自动识别</li>
-</ul>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 自定义的全局组件my-component</span><br><span class="line">// template中只有一个根元素p标签，里面包含一个button按钮</span><br><span class="line">Vue.component(&#x27;my-component&#x27;,&#123;</span><br><span class="line">    template:`&lt;p&gt;</span><br><span class="line">        我的名字是：&#123;&#123;name&#125;&#125;</span><br><span class="line">        &lt;button @click=&#x27;changeName()&#x27;&gt;btn&lt;/button&gt;</span><br><span class="line">        &lt;/p&gt;`,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            name:&#x27;ccy&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        changeName:function()&#123;</span><br><span class="line">            this.name = &#x27;安之&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">// vue对象1</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">&#125;)</span><br><span class="line">// vue对象2</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-two&quot;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>使用组件：</strong></p>
-<blockquote>
-<p>① 在vue对象对应的根元素（el指定标签）下使用<br>② 由于定义的是全局组件，所以可以在任意的vue对象下使用<br>③ 组件可复用，在一个vue对象下可以使用多次，且组件间互相独立</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;my-component&gt;&lt;/my-component&gt;</span><br><span class="line">    &lt;my-component&gt;&lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;vue-app-two&quot;&gt;</span><br><span class="line">    &lt;my-component&gt;&lt;/my-component&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="data是一个函数"><a href="#data是一个函数" class="headerlink" title="data是一个函数"></a>data是一个函数</h3><p>在vue对象中，data属性值是一个对象，比如这样的：</p>
-<p><img src="https://img-blog.csdnimg.cn/20210603174554953.png#pic_center" alt="img"></p>
-<p> 但是在全局组件中，同一份data可能被多个vue对象使用，每个对象不单独维护一份data时，如果某一个vue对象修改了data中的一个变量，其他vue对象获取data时就会被影响；</p>
-<pre><code>  如果用上面的例子做案例，若组件中的data是对象（引用），其他地方均不改变，两个vue对象便共享同一个name变量；当我通过其中一个vue对象改变name数据时（即点击任一个btn按钮），另一个对象获得的name也发生了改变（其他按钮处的’ccy’也都被改成了’安之’）
-</code></pre>
-<blockquote>
-<p>因此，为保证数据的独立性，即<strong>每个实例可以维护一份被返回对象的独立的拷贝</strong>，data为每个实例都return一份新创建的数据，不同的vue对象获取的data均互不影响</p>
-</blockquote>
-<h2 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h2><blockquote>
-<ul>
-<li>局部组件注册在某个vue对象中，</li>
-<li>只有注册过该局部组件的vue对象才能使用这个局部组件</li>
-</ul>
-</blockquote>
-<p>例子：<br><strong>局部组件定义</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// template仅一个根元素：ul</span><br><span class="line">var msgComponent = &#123;</span><br><span class="line">	 // 数据是自身提供的 (hobbies)</span><br><span class="line">    template:`&lt;ul&gt;&lt;li v-for=&#x27;hobby in hobbies&#x27; v-bind:key=&#x27;hobby.id&#x27;&gt;&#123;&#123;hobby&#125;&#125;&lt;/li&gt;&lt;/ul&gt;`,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            hobbies:[&#x27;看剧&#x27;,&#x27;看动漫&#x27;,&#x27;吃好吃的&#x27;]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>注册局部组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 仅由注册过该局部组件的vue对象才能使用，此处为div#vue-app-one</span><br><span class="line">// 注意命名规范，components中对象的key将会被作为标签名，多个单词拼接的命名需使用横杆法</span><br><span class="line">// 可以写成msg-component，此处直接简化了命名为msg，</span><br><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        &quot;msg&quot;: msgComponent</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>html文件中使用</strong><code>&lt;msg&gt;&lt;/msg&gt;</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是vue-app-one&lt;/p&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;p&gt;我的爱好：&lt;/p&gt;</span><br><span class="line">    &lt;msg&gt;&lt;/msg&gt; &lt;!--使用局部组件--&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="父向子传值-x2F-传引用：prop"><a href="#父向子传值-x2F-传引用：prop" class="headerlink" title="父向子传值&#x2F;传引用：prop"></a>父向子传值&#x2F;传引用：prop</h2><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h3 id="静态传值"><a href="#静态传值" class="headerlink" title="静态传值"></a>静态传值</h3><p><strong>创建子组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var titleComponent = &#123;</span><br><span class="line">    props:[&quot;title&quot;],</span><br><span class="line">    template:`&lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;`</span><br><span class="line">    // 所需要的数据title由父组件提供</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>在父组件的components属性中注册子组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        &quot;msg&quot;: msgComponent,</span><br><span class="line">        &quot;titleComponent&quot;:titleComponent</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>在父组件上使用子组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- div#vue-app-one为父组件 --&gt;</span><br><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是vue-app-one&lt;/p&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">	&lt;!--使用子组件title-component，并传值&quot;我的爱好：&quot;给子组件--&gt;</span><br><span class="line">    &lt;title-component title=&quot;我的爱好：&quot;&gt;&lt;/title-component&gt;</span><br><span class="line">    &lt;msg&gt;&lt;/msg&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="动态传值：v-bind"><a href="#动态传值：v-bind" class="headerlink" title="动态传值：v-bind"></a>动态传值：v-bind</h3><p><strong>定义子组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var titleComponent = &#123;</span><br><span class="line">    props:[&quot;title&quot;],</span><br><span class="line">    template:`&lt;p&gt;&#123;&#123;title&#125;&#125;&lt;/p&gt;`</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>在父组件的components属性中注册子组件：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        &quot;msg&quot;: msgComponent,</span><br><span class="line">        &quot;titleComponent&quot;:titleComponent</span><br><span class="line">    &#125;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            title:&quot;my hobbies are &quot;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>使用子组件</strong>，通过绑定父组件data中的变量title来实现动态传值：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- div#vue-app-one为父组件 --&gt;</span><br><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是vue-app-one&lt;/p&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;mycomponent&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;!-- 动态绑定title --&gt;</span><br><span class="line">    &lt;title-component v-bind:title=&quot;title&quot;&gt;&lt;/title-component&gt;</span><br><span class="line">    &lt;msg&gt;&lt;/msg&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>传递数组等复杂数据时，也可以使用v-bind来动态传值，如：<br>需要向子级传递hobbies数组，<strong>在vue实例对象（父）中创建数据hobbies</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    components:&#123;</span><br><span class="line">        &quot;msg&quot;: msgComponent,</span><br><span class="line">        &quot;titleComponent&quot;:titleComponent</span><br><span class="line">    &#125;,</span><br><span class="line">    data:&#123;</span><br><span class="line">        title:&quot;my hobbies are &quot;,</span><br><span class="line">        hobbies:[&#x27;看剧&#x27;,&#x27;看动漫&#x27;,&#x27;吃好吃的&#x27;], //需要向子组件传递的数据</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>定义子组件</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var msgComponent = &#123;</span><br><span class="line">    template:`</span><br><span class="line">            &lt;p&gt;&#123;&#123;hobby&#125;&#125;&lt;/p&gt;</span><br><span class="line">            `,</span><br><span class="line">    props:[&quot;hobby&quot;],</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>使用子组件</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- div#vue-app-one为父组件 --&gt;</span><br><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是vue-app-one&lt;/p&gt;</span><br><span class="line">    &lt;mycomponent name=&quot;ccy&quot;&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;mycomponent name=&quot;ccy&quot;&gt;&lt;/mycomponent&gt;</span><br><span class="line">    &lt;title-component v-bind:title=&quot;title&quot;&gt;&lt;/title-component&gt;</span><br><span class="line">    &lt;!-- 动态传值：hobbies --&gt;</span><br><span class="line">    &lt;msg v-for=&quot;hobby in hobbies&quot; v-bind:hobby=&quot;hobby&quot; v-bind:key=&quot;hobby.id&quot;&gt;&lt;/msg&gt;</span><br><span class="line">&lt;/div&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="子向父：事件传值-emit"><a href="#子向父：事件传值-emit" class="headerlink" title="子向父：事件传值$emit"></a>子向父：事件传值$emit</h2><p>   子组件不能通过prop向父组件传递数据，需要使用事件向父组件抛出一个值，告知父组件我需要实现一个功能，由父组件处理这个事件</p>
-<p>例子：点击按钮，改变名称chinesename<br>（由于data变量名不支持chinese-name形式，花括号里不支持chineseName形式，所以这里我都用了小写，此处记录一下，日后学到了新知再来填坑）</p>
-<p>先在父组件的data中定义chinesename的初始值：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">         chinesename:&quot;anzhi&quot; // chinesename初始值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>创建子组件，并注册事件change-name（就像click事件一样，需要让系统能够辨认这是一个事件并监听，当事件被触发时，执行某项约定好的操作）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#x27;blog-post&#x27;, &#123;</span><br><span class="line">  props: [&#x27;chinesename&#x27;],</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div class=&quot;blog-post&quot;&gt;</span><br><span class="line">      &lt;h3&gt;&#123;&#123; chinesename &#125;&#125;&lt;/h3&gt;</span><br><span class="line">      &lt;button v-on:click=&#x27;$emit(&quot;change-name&quot;,&quot;ruosu&quot;)&#x27;&gt;</span><br><span class="line">          修改名字</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `</span><br><span class="line">  // blog-post组件包含一个h3，显示chinesename，和一个按钮</span><br><span class="line">  // 点击这个按钮，触发change-name事件，将&quot;ruosu&quot;作为参数传递给指定的处理函数onChangeName</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>在父组件中使用子组件，定义change-name的处理函数为onChangeName：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vue-app-one&quot;&gt;</span><br><span class="line">    &lt;p&gt;这里是vue-app-one&lt;/p&gt;</span><br><span class="line">	&lt;!-- v-bind：通过prop给子组件传递chinesename的初始值 --&gt;</span><br><span class="line">	&lt;!-- v-on：子组件通过$emit给父组件传递新的chinesename的值 --&gt;</span><br><span class="line">	&lt;div id=&quot;blog-posts-events-demo&quot;&gt;</span><br><span class="line">	      &lt;blog-post</span><br><span class="line">	        v-bind:chinesename=&#x27;chinesename&#x27;</span><br><span class="line">	        v-on:change-name = &quot;onChangeName&quot;</span><br><span class="line">	      &gt;&lt;/blog-post&gt;</span><br><span class="line">	 &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>在父组件处定义事件处理函数onChangeName：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">    el:&quot;#vue-app-one&quot;,</span><br><span class="line">    data:&#123;</span><br><span class="line">          chinesename:&quot;anzhi&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        onChangeName:function(value)&#123;</span><br><span class="line">        	// 将chinesename换成传递过来的数据</span><br><span class="line">            this.chinesename=value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>父子组件的区分</strong>：</p>
-<ul>
-<li>el指定的根元素为父组件（使用之处为父组件）</li>
-<li>vue实例对象也可看做组件</li>
-</ul>
-<p>title-component组件定义处与使用处，两者身份是不一样的，在定义处，它是局部组件，也是子组件，需注册才能使用；在使用处，它是根元素的包含一部分，根元素为父组件，而“它”，承担着父组件与子组件数据沟通的重任</p>
-
+        <h3 id="Vue组件应用"><a href="#Vue组件应用" class="headerlink" title="Vue组件应用"></a>Vue组件应用</h3>
+        
+          <a class="article-more-a" href="/2022/07/08/2022-7-8-Vue%E7%BB%84%E4%BB%B6%E5%BA%94%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -919,51 +728,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、什么是webpack"><a href="#一、什么是webpack" class="headerlink" title="一、什么是webpack"></a>一、什么是webpack</h3><p>Webpack 是一个前端资源加载&#x2F;打包工具。它将根据模块的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB&spm=1001.2101.3001.7020">依赖关系</a>进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
-<h3 id="二、webpack安装及使用"><a href="#二、webpack安装及使用" class="headerlink" title="二、webpack安装及使用"></a>二、webpack安装及使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-cli -g  #全局安装webpack</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webpack -v   #查看安装版本号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="三、初始化项目"><a href="#三、初始化项目" class="headerlink" title="三、初始化项目"></a>三、初始化项目</h3><h4 id="1、创建webpack文件夹"><a href="#1、创建webpack文件夹" class="headerlink" title="1、创建webpack文件夹"></a>1、创建webpack文件夹</h4><p>进入webpack目录，执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、创建src文件夹"><a href="#2、创建src文件夹" class="headerlink" title="2、创建src文件夹"></a>2、创建src文件夹</h4><h4 id="3、src下创建common-js"><a href="#3、src下创建common-js" class="headerlink" title="3、src下创建common.js"></a>3、src下创建common.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.info = function (str) &#123;</span><br><span class="line">    document.write(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、src下创建utils-js"><a href="#4、src下创建utils-js" class="headerlink" title="4、src下创建utils.js"></a>4、src下创建utils.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.add = function (a, b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="5、src下创建main-js"><a href="#5、src下创建main-js" class="headerlink" title="5、src下创建main.js"></a>5、src下创建main.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const common = require(&#x27;./common&#x27;);</span><br><span class="line">const utils = require(&#x27;./utils&#x27;);</span><br><span class="line">common.info(&#x27;Hello world!&#x27; + utils.add(100, 200));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>四、JS打包</p>
-<p>1、webpack目录下创建配置文件webpack.config.js<br>以下配置的意思是：读取当前项目目录下src文件夹中的main.js（入口文件）内容，分析资源依赖，把相关的js文件打包，打包后的文件放入当前目录的dist文件夹下，打包后的js文件名为bundle.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#x27;./src/main.js&#x27;, //配置入口文件</span><br><span class="line">    output: &#123;</span><br><span class="line">   path: path.resolve(__dirname, &#x27;./dist&#x27;), //输出路径，__dirname：当前文件所在路径</span><br><span class="line">        filename: &#x27;bundle.js&#x27; //输出文件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、命令行执行编译命令"><a href="#2、命令行执行编译命令" class="headerlink" title="2、命令行执行编译命令"></a>2、命令行执行编译命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">webpack #有黄色警告</span><br><span class="line">webpack --mode=development #没有警告</span><br><span class="line">#执行后查看bundle.js 里面包含了上面两个js文件的内容并惊醒了代码压缩</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也可以配置项目的npm运行命令，修改package.json文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    //...,</span><br><span class="line">    &quot;dev&quot;: &quot;webpack --mode=development&quot;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>运行npm命令执行打包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、webpack目录下创建index-html"><a href="#3、webpack目录下创建index-html" class="headerlink" title="3、webpack目录下创建index.html"></a>3、webpack目录下创建index.html</h3><p>引用bundle.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、浏览器中查看index-html"><a href="#4、浏览器中查看index-html" class="headerlink" title="4、浏览器中查看index.html"></a>4、浏览器中查看index.html</h4><h3 id="五、CSS打包"><a href="#五、CSS打包" class="headerlink" title="五、CSS打包"></a>五、CSS打包</h3><p>1、安装style-loader和 css-loader<br>Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。</p>
-<p>Loader 可以理解为是模块和资源的转换器。</p>
-<p>首先我们需要安装相关Loader插件，css-loader 是将 css 装载到 javascript；style-loader 是让 javascript 认识css</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev style-loader css-loader </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、修改webpack.config.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //...,</span><br><span class="line">    output:&#123;&#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [  </span><br><span class="line">            &#123;  </span><br><span class="line">                test: /\.css$/,    //打包规则应用到以css结尾的文件上</span><br><span class="line">                use: [&#x27;style-loader&#x27;, &#x27;css-loader&#x27;]</span><br><span class="line">            &#125;  </span><br><span class="line">        ]  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、在src文件夹创建style-css"><a href="#3、在src文件夹创建style-css" class="headerlink" title="3、在src文件夹创建style.css"></a>3、在src文件夹创建style.css</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、修改main-js"><a href="#4、修改main-js" class="headerlink" title="4、修改main.js"></a>4、修改main.js</h4><p>在第一行引入style.css</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;./style.css&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+        <h3 id="一、什么是webpack"><a href="#一、什么是webpack" class="headerlink" title="一、什么是webpack"></a>一、什么是webpack</h3>
+        
+          <a class="article-more-a" href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -1036,22 +804,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p><img src="D:\typora-user-images\image-20220706161156730.png" alt="image-20220706161156730"></p>
-<p>事件的基本使用：</p>
-<p>​    1.使用v-on:xxx 或@xxx 绑定事件，其中xxx是事件名（事件必须定义Vue实例methods方法中）</p>
-<p>​    2.事件的回调需要配置在methods方法中，最终回在vm上</p>
-<p>​    3.methods中配置的函数，不要用箭头函数！否则this就不是vm了</p>
-<p>​    4.methods中配置的函数，都是vue管理的函数，this的指向是vm 或组件实例对象</p>
-<p>​    5.@click&#x3D;”demo”  和 @click&#x3D;”demo($event)”效果一致但后者可以传参。</p>
-<h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p>1.prevent:阻止默认事件</p>
-<p>2.stop:阻止事件冒泡</p>
-<p>3.once:事件指出触发一次</p>
-<p>使用：阻止链接跳转</p>
-<p><img src="D:\typora-user-images\image-20220706170304050.png" alt="image-20220706170304050"></p>
-<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><p><img src="D:\typora-user-images\image-20220706164759878.png" alt="image-20220706164759878"></p>
-<p><img src="D:\typora-user-images\image-20220706164844112.png" alt="image-20220706164844112"></p>
-<p>@keyup.esc&#x3D;“xx”,监听键盘调用事件</p>
-
+        <h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4>
+        
+          <a class="article-more-a" href="/2022/07/06/2022-7-6-Vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/#more">more >></a>
+        
       
 
       
@@ -1201,11 +957,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1233,10 +989,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -1245,11 +997,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,6 +1014,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1285,19 +1041,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1305,7 +1053,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1321,7 +1073,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,7 +1081,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1341,7 +1093,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1349,7 +1101,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,6 +1117,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -1373,15 +1129,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>

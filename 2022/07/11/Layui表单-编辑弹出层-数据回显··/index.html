@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Supercx博客</title>
+  <title>Layui表单 编辑弹出层 数据回显 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title:Layui表单 编辑弹出层 数据回显··1234567891011121314151617181920212223242526272829303132333435363738$.ajax(&amp;#123;                          type: &quot;post&quot;,                          url: &quot;EditPos">
+  <meta name="description" content="Layui表单 编辑弹出层 数据回显">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Supercx博客">
-<meta property="og:url" content="http://example.com/2022/07/10/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/index.html">
+<meta property="og:title" content="Layui表单 编辑弹出层 数据回显">
+<meta property="og:url" content="http://example.com/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="title:Layui表单 编辑弹出层 数据回显··1234567891011121314151617181920212223242526272829303132333435363738$.ajax(&amp;#123;                          type: &quot;post&quot;,                          url: &quot;EditPos">
+<meta property="og:description" content="Layui表单 编辑弹出层 数据回显">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-10T15:37:31.638Z">
-<meta property="article:modified_time" content="2022-06-12T14:04:28.000Z">
+<meta property="article:published_time" content="2022-07-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-21T15:22:56.166Z">
 <meta property="article:author" content="Xiaochao">
 <meta name="twitter:card" content="summary">
   
@@ -171,10 +171,28 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
             <article id="post-Layui表单-编辑弹出层-数据回显··" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Layui表单 编辑弹出层 数据回显
+    </h1>
+  
+
+        
+        <a href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/" class="archive-article-date">
+  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-Layui表单-编辑弹出层-数据回显··"><a href="#title-Layui表单-编辑弹出层-数据回显··" class="headerlink" title="title:Layui表单 编辑弹出层 数据回显··"></a>title:Layui表单 编辑弹出层 数据回显··</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">                          type: &quot;post&quot;,</span><br><span class="line">                          url: &quot;EditPost&quot;,</span><br><span class="line">                          data: &#123; data: JSON.stringify(field), kid: kid &#125;,</span><br><span class="line">                          dataType: &quot;json&quot;,</span><br><span class="line">                          success: function (ret) &#123;</span><br><span class="line">                              if (ret.code == &quot;0&quot;) &#123;</span><br><span class="line">                                  table.reload(&#x27;LAY-Fd_sys_logintoken-manage&#x27;); //数据刷新</span><br><span class="line">                                  layer.close(index); //关闭弹层</span><br><span class="line">                              &#125;</span><br><span class="line">                              else &#123;</span><br><span class="line">                                  if (ret.msg == null)</span><br><span class="line">                                      layer.msg(&quot;提交失败,服务器未返回失败信息&quot;);</span><br><span class="line">                                  else</span><br><span class="line">                                      layer.msg(ret.msg);</span><br><span class="line">                              &#125;</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                      //table.reload(&#x27;LAY-Fd_sys_logintoken-front-submit&#x27;); //数据刷新</span><br><span class="line">                      //layer.close(index); //关闭弹层</span><br><span class="line">                  &#125;);</span><br><span class="line"></span><br><span class="line">                  submit.trigger(&#x27;click&#x27;);</span><br><span class="line">              &#125;</span><br><span class="line">              , success: function ( layero,index) &#123;</span><br><span class="line">                    var body = layer.getChildFrame(&#x27;body&#x27;, index); //巧妙的地方在这里哦</span><br><span class="line">                    body.find(&quot;input[name=userId]&quot;).val(data.userId);</span><br><span class="line">                    body.find(&quot;input[name=loginAccount]&quot;).val(data.loginAccount);</span><br><span class="line">                    body.find(&quot;input[name=token]&quot;).val(data.token);</span><br><span class="line">                    body.find(&quot;input[name=indateBegin]&quot;).val(data.indateBegin);</span><br><span class="line">                    body.find(&quot;input[name=indateEnd]&quot;).val(data.indateEnd);</span><br><span class="line">                    body.find(&quot;input[name=states]&quot;).val(data.states);</span><br><span class="line">                    form.render(&quot;text&quot;);</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
+        <h4 id="Layui表单-编辑弹出层-数据回显"><a href="#Layui表单-编辑弹出层-数据回显" class="headerlink" title="Layui表单 编辑弹出层 数据回显"></a>Layui表单 编辑弹出层 数据回显</h4><span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">                          type: &quot;post&quot;,</span><br><span class="line">                          url: &quot;EditPost&quot;,</span><br><span class="line">                          data: &#123; data: JSON.stringify(field), kid: kid &#125;,</span><br><span class="line">                          dataType: &quot;json&quot;,</span><br><span class="line">                          success: function (ret) &#123;</span><br><span class="line">                              if (ret.code == &quot;0&quot;) &#123;</span><br><span class="line">                                  table.reload(&#x27;LAY-Fd_sys_logintoken-manage&#x27;); //数据刷新</span><br><span class="line">                                  layer.close(index); //关闭弹层</span><br><span class="line">                              &#125;</span><br><span class="line">                              else &#123;</span><br><span class="line">                                  if (ret.msg == null)</span><br><span class="line">                                      layer.msg(&quot;提交失败,服务器未返回失败信息&quot;);</span><br><span class="line">                                  else</span><br><span class="line">                                      layer.msg(ret.msg);</span><br><span class="line">                              &#125;</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                      //table.reload(&#x27;LAY-Fd_sys_logintoken-front-submit&#x27;); //数据刷新</span><br><span class="line">                      //layer.close(index); //关闭弹层</span><br><span class="line">                  &#125;);</span><br><span class="line"></span><br><span class="line">                  submit.trigger(&#x27;click&#x27;);</span><br><span class="line">              &#125;</span><br><span class="line">              , success: function ( layero,index) &#123;</span><br><span class="line">                    var body = layer.getChildFrame(&#x27;body&#x27;, index); //巧妙的地方在这里哦</span><br><span class="line">                    body.find(&quot;input[name=userId]&quot;).val(data.userId);</span><br><span class="line">                    body.find(&quot;input[name=loginAccount]&quot;).val(data.loginAccount);</span><br><span class="line">                    body.find(&quot;input[name=token]&quot;).val(data.token);</span><br><span class="line">                    body.find(&quot;input[name=indateBegin]&quot;).val(data.indateBegin);</span><br><span class="line">                    body.find(&quot;input[name=indateEnd]&quot;).val(data.indateEnd);</span><br><span class="line">                    body.find(&quot;input[name=states]&quot;).val(data.states);</span><br><span class="line">                    form.render(&quot;text&quot;);</span><br><span class="line"></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -265,7 +283,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/022/07/10/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,11 +298,11 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
   
 <nav id="article-nav">
   
-    <a href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/11/2022-7-11-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          计算属性实现
+          键盘事件
         
       </div>
     </a>
@@ -318,7 +336,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7"><span class="toc-number">1.</span> <span class="toc-text">title:Layui表单 编辑弹出层 数据回显··</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE"><span class="toc-number">1.</span> <span class="toc-text">Layui表单 编辑弹出层 数据回显</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -430,11 +448,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,10 +480,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
               </li>
              
@@ -474,11 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
+                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,6 +505,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,19 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,7 +564,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +572,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,7 +584,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,7 +592,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,6 +608,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
               </li>
              
@@ -602,15 +620,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>
