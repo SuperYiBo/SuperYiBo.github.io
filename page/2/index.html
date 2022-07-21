@@ -166,6 +166,71 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2022-7-12-key的作用与原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">key的作用与原理</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="key的作用与原理"><a href="#key的作用与原理" class="headerlink" title="key的作用与原理"></a>key的作用与原理</h4><p>利用index作为key，如果在创建数据时打乱排序，会导致数据异常（虚拟dom算法导致，对比index，index不能作为唯一标识会发生改变）因此在开发中最好采用唯一标识key作为索引主键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;人员列表&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;add&quot;&gt;添加员工&lt;/button&gt;</span><br><span class="line">    &lt;!--    遍历数组--&gt;</span><br><span class="line">&lt;!--    &lt;ul&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;li v-for=&quot;(p,index) in persons&quot; :key=&quot;index&quot;&gt;--&gt;</span><br><span class="line">&lt;!--            &#123;&#123;p.name&#125;&#125;&amp;#45;&amp;#45;&#123;&#123;p.age&#125;&#125;--&gt;</span><br><span class="line">&lt;!--            &lt;input type=&quot;text&quot;&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;/li&gt;--&gt;</span><br><span class="line">&lt;!--    &lt;/ul&gt;--&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;p in persons&quot; :key=&quot;p.id&quot;&gt;</span><br><span class="line">            &#123;&#123;p.name&#125;&#125;--&#123;&#123;p.age&#125;&#125;</span><br><span class="line">            &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            persons:[</span><br><span class="line">                &#123;id:1,name:&#x27;wang&#x27;,age:18&#125;,</span><br><span class="line">                &#123;id:2,name:&#x27;li&#x27;,age:19&#125;,</span><br><span class="line">                &#123;id:3,name:&#x27;liu&#x27;,age:20&#125;</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                const p = &#123;id:4,name:&#x27;zhang&#x27;,age:21&#125;</span><br><span class="line">                this.persons.unshift(p)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-2022-7-12-vue.set()添加data属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -203,71 +268,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/12/2022-7-12-vue.set()%E6%B7%BB%E5%8A%A0data%E5%B1%9E%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-key的作用与原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">key的作用与原理</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="key的作用与原理"><a href="#key的作用与原理" class="headerlink" title="key的作用与原理"></a>key的作用与原理</h4><p>利用index作为key，如果在创建数据时打乱排序，会导致数据异常（虚拟dom算法导致，对比index，index不能作为唯一标识会发生改变）因此在开发中最好采用唯一标识key作为索引主键</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;人员列表&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;add&quot;&gt;添加员工&lt;/button&gt;</span><br><span class="line">    &lt;!--    遍历数组--&gt;</span><br><span class="line">&lt;!--    &lt;ul&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;li v-for=&quot;(p,index) in persons&quot; :key=&quot;index&quot;&gt;--&gt;</span><br><span class="line">&lt;!--            &#123;&#123;p.name&#125;&#125;&amp;#45;&amp;#45;&#123;&#123;p.age&#125;&#125;--&gt;</span><br><span class="line">&lt;!--            &lt;input type=&quot;text&quot;&gt;--&gt;</span><br><span class="line">&lt;!--        &lt;/li&gt;--&gt;</span><br><span class="line">&lt;!--    &lt;/ul&gt;--&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for=&quot;p in persons&quot; :key=&quot;p.id&quot;&gt;</span><br><span class="line">            &#123;&#123;p.name&#125;&#125;--&#123;&#123;p.age&#125;&#125;</span><br><span class="line">            &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            persons:[</span><br><span class="line">                &#123;id:1,name:&#x27;wang&#x27;,age:18&#125;,</span><br><span class="line">                &#123;id:2,name:&#x27;li&#x27;,age:19&#125;,</span><br><span class="line">                &#123;id:3,name:&#x27;liu&#x27;,age:20&#125;</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                const p = &#123;id:4,name:&#x27;zhang&#x27;,age:21&#125;</span><br><span class="line">                this.persons.unshift(p)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -398,6 +398,80 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/12/2022-7-12-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-12-收集表单数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">收集表单数据</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;form @submit.prevent=&quot;demo&quot;&gt;</span><br><span class="line">        账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt;&lt;br/&gt;</span><br><span class="line">        密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt;&lt;br/&gt;</span><br><span class="line">        年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt;&lt;br/&gt;</span><br><span class="line">        性别：</span><br><span class="line">        男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;</span><br><span class="line">        女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt;&lt;br/&gt;</span><br><span class="line">        爱好：</span><br><span class="line">        学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;</span><br><span class="line">        打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;</span><br><span class="line">        睡觉&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;sleep&quot;&gt;&lt;br/&gt;</span><br><span class="line">        所属校区</span><br><span class="line">        &lt;select v-model=&quot;userInfo.city&quot;&gt;</span><br><span class="line">            &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;</span><br><span class="line">        &lt;/select&gt;</span><br><span class="line">        &lt;br/&gt;</span><br><span class="line">        其他信息：</span><br><span class="line">        &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;</span><br><span class="line">        &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http:www.baidu.com&quot;&gt;《用户协议》&lt;/a&gt;&lt;br/&gt;</span><br><span class="line">        &lt;button&gt;提交&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            userInfo:&#123;</span><br><span class="line">                account:&#x27;&#x27;,</span><br><span class="line">                password:&#x27;&#x27;,</span><br><span class="line">                age:18,</span><br><span class="line">                sex:&#x27;male&#x27;,</span><br><span class="line">                hobby:[],</span><br><span class="line">                city:&#x27;beijing&#x27;,</span><br><span class="line">                other:&#x27;&#x27;,</span><br><span class="line">                agree:&#x27;&#x27;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            demo()&#123;</span><br><span class="line">                console.log(JSON.stringify(this.userInfo))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<ul>
+<li><p>v-model收集的是value值，因此在单选框和复选框必须赋初值value</p>
+</li>
+<li><p>在复选框（多选框）data对应收集数据必须以数组形式接收[]</p>
+</li>
+<li><p>v-model三个修饰符：lazy 失去焦点再收集数据    number 输入字符串再转换为有效数字</p>
+<p>trim 输入首位空格过滤</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">展开全文 >></a>
         </p>
       
 
@@ -562,173 +636,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-2022-7-12-收集表单数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">收集表单数据</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;form @submit.prevent=&quot;demo&quot;&gt;</span><br><span class="line">        账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt;&lt;br/&gt;</span><br><span class="line">        密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt;&lt;br/&gt;</span><br><span class="line">        年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt;&lt;br/&gt;</span><br><span class="line">        性别：</span><br><span class="line">        男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;</span><br><span class="line">        女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt;&lt;br/&gt;</span><br><span class="line">        爱好：</span><br><span class="line">        学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;</span><br><span class="line">        打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;</span><br><span class="line">        睡觉&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;sleep&quot;&gt;&lt;br/&gt;</span><br><span class="line">        所属校区</span><br><span class="line">        &lt;select v-model=&quot;userInfo.city&quot;&gt;</span><br><span class="line">            &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;</span><br><span class="line">            &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;</span><br><span class="line">        &lt;/select&gt;</span><br><span class="line">        &lt;br/&gt;</span><br><span class="line">        其他信息：</span><br><span class="line">        &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;</span><br><span class="line">        &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http:www.baidu.com&quot;&gt;《用户协议》&lt;/a&gt;&lt;br/&gt;</span><br><span class="line">        &lt;button&gt;提交&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            userInfo:&#123;</span><br><span class="line">                account:&#x27;&#x27;,</span><br><span class="line">                password:&#x27;&#x27;,</span><br><span class="line">                age:18,</span><br><span class="line">                sex:&#x27;male&#x27;,</span><br><span class="line">                hobby:[],</span><br><span class="line">                city:&#x27;beijing&#x27;,</span><br><span class="line">                other:&#x27;&#x27;,</span><br><span class="line">                agree:&#x27;&#x27;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            demo()&#123;</span><br><span class="line">                console.log(JSON.stringify(this.userInfo))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>总结：</p>
-<ul>
-<li><p>v-model收集的是value值，因此在单选框和复选框必须赋初值value</p>
-</li>
-<li><p>在复选框（多选框）data对应收集数据必须以数组形式接收[]</p>
-</li>
-<li><p>v-model三个修饰符：lazy 失去焦点再收集数据    number 输入字符串再转换为有效数字</p>
-<p>trim 输入首位空格过滤</p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-监视属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">监视属性</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h4><p>天气切换案例：@click&#x3D;”isHot &#x3D; !isHot” 简单可以直接写，不用调方法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">           info()&#123;</span><br><span class="line">               return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">                changeWeather()&#123;</span><br><span class="line">                    this.isHot=!this.isHot</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>监视天气变化：newValue为新值，oldvalue为原值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // watch:&#123;</span><br><span class="line">        //     isHot:&#123;</span><br><span class="line">        //         // 初始化属性时，调用handler</span><br><span class="line">        //         immediate:true,</span><br><span class="line">        //         handler(newValue,oldValue)&#123;</span><br><span class="line">        //             console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        //         &#125;</span><br><span class="line">        //</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">        // 初始化属性时，调用handler</span><br><span class="line">        immediate:true,</span><br><span class="line">        handler(newValue,oldValue)&#123;</span><br><span class="line">            console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>监听属性，<strong>深度监视</strong>:带有数据结构的‘numbers.a’:   </p>
-<p>deep：true   属性内部深层数据发生变化，便触发监听</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.a&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.a++&quot;&gt;a++&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.b&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.b++&quot;&gt;b++&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                a:1,</span><br><span class="line">                b:2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch:&#123;</span><br><span class="line">            isHot:&#123;</span><br><span class="line">                // 初始化属性时，调用handler</span><br><span class="line">                immediate:true,</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            &#x27;numbers.a&#x27;:&#123;</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;a被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                deep:true,</span><br><span class="line">                handler()&#123;</span><br><span class="line">                    console.log(&quot;numbers改变了&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    // vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">    //     // 初始化属性时，调用handler</span><br><span class="line">    //     immediate:true,</span><br><span class="line">    //     handler(newValue,oldValue)&#123;</span><br><span class="line">    //         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">    //     &#125;</span><br><span class="line"></span><br><span class="line">    // &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>简写形式</strong>：前提imediate:true和deep:true不能启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isHot(newValue,oldValue)&#123;</span><br><span class="line">                  console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">              &#125;,</span><br></pre></td></tr></table></figure>
-
-<p>或</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(&#x27;isHot&#x27;,function(newValue,oldValue)&#123;</span><br><span class="line">         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>属性监听和计算属性比较：</p>
-<p>姓名案例用监听属性实现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">            fullName:&#x27;张-三&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        // computed: &#123;</span><br><span class="line">        //     fullName: &#123;</span><br><span class="line">        //         get() &#123;</span><br><span class="line">        //             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //         &#125;,</span><br><span class="line">        //         set(value) &#123;</span><br><span class="line">        //             const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">        //             this.firstName = arr[0]</span><br><span class="line">        //             this.lastName = arr[1]</span><br><span class="line">        //         &#125;</span><br><span class="line">        //     &#125;</span><br><span class="line">        //</span><br><span class="line">        // &#125;</span><br><span class="line">        // computed:&#123;</span><br><span class="line">        //     fullName()&#123;</span><br><span class="line">        //         return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">        //val传的新值</span><br><span class="line">        watch:&#123;</span><br><span class="line">            firstName(val)&#123;</span><br><span class="line">                setTimeout(()=&gt;&#123;</span><br><span class="line">                    this.fullName=val+&#x27;-&#x27;+this.lastName</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;,</span><br><span class="line">            lastName(val)&#123;</span><br><span class="line">                this.fullName=this.firstName+&#x27;-&#x27;+val</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>总结</strong></p>
-<p>computed和watch区别：</p>
-<ul>
-<li>computed能完成的watch都能完成</li>
-<li>watch能够执行异步操作，如时间延长</li>
-<li>关于箭头函数：被Vue管理的函数最好写成普通函数，this就指向Vue;  watch必须写成箭头函数，this才指向Vue</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-2022-7-12-监测数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -774,6 +681,72 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/12/2022-7-12-%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-12-过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">过滤器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p>导入dayjs事件格式转换包<script src="https://unpkg.com/dayjs"></script></p>
+<p>全局过滤器（Vue.filter)和局部过滤器(filters:)的定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://unpkg.com/dayjs&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;fmtTime&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;!--    &lt;h2&gt;&#123;&#123;time | timeFormater&#125;&#125;&lt;/h2&gt;--&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;time | timeFormater(&#x27;YYYY_MM_DD&#x27;) | mySlice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :x=&quot;msg | mySlice&quot;&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;root2&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name | mySlice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    //全局过滤器，必须定义Vue对象之前</span><br><span class="line">    Vue.filter(&#x27;mySlice&#x27;,function(value)&#123;</span><br><span class="line">        return value.slice(0,5)</span><br><span class="line">    &#125;)</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            msg: &quot;hello，张三&quot;,</span><br><span class="line">            time: 1621561377603,</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            fmtTime() &#123;</span><br><span class="line">                return dayjs(this.time).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        //局部过滤器</span><br><span class="line">        filters: &#123;</span><br><span class="line">            // timeFormater(value) &#123;</span><br><span class="line">            //     return dayjs(value).format(&#x27;YYYY年MM月DD日 HH:mm:ss&#x27;)</span><br><span class="line">            // &#125;,</span><br><span class="line">            timeFormater(value,str) &#123;</span><br><span class="line">                return dayjs(value).format(str)</span><br><span class="line">            &#125;,</span><br><span class="line">            // mySlice(value) &#123;</span><br><span class="line">            //     return value.slice(0, 5)</span><br><span class="line">            // &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &quot;#root2&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            name: &#x27;你好！法外狂徒张三！&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">展开全文 >></a>
         </p>
       
 
@@ -965,11 +938,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,11 +950,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">Vue事件绑定</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue事件绑定</a>
+                <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,6 +966,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Vue组件应用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
@@ -1001,15 +978,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue组件应用</a>
+                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,15 +994,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JVM性能调优</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Java中的异常体系</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JVM性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1049,11 +1022,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,7 +1042,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">list和set区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1077,7 +1050,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">list和set区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,7 +1066,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,11 +1074,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,15 +1082,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1137,7 +1110,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1145,7 +1118,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
+                <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
               </li>
             
             <div class="clearfix"></div>

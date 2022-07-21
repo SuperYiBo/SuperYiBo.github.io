@@ -166,19 +166,19 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2022-7-12-过滤器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-12-监视属性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">过滤器</a>
+      <a class="article-title" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">监视属性</a>
     </h1>
   
 
         
-        <a href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/" class="archive-article-date">
+        <a href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/" class="archive-article-date">
   	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
 </a>
         
@@ -186,10 +186,37 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p>导入dayjs事件格式转换包<script src="https://unpkg.com/dayjs"></script></p>
-<p>全局过滤器（Vue.filter)和局部过滤器(filters:)的定义</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://unpkg.com/dayjs&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;fmtTime&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;!--    &lt;h2&gt;&#123;&#123;time | timeFormater&#125;&#125;&lt;/h2&gt;--&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;time | timeFormater(&#x27;YYYY_MM_DD&#x27;) | mySlice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2 :x=&quot;msg | mySlice&quot;&gt;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;root2&quot;&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;name | mySlice&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    //全局过滤器，必须定义Vue对象之前</span><br><span class="line">    Vue.filter(&#x27;mySlice&#x27;,function(value)&#123;</span><br><span class="line">        return value.slice(0,5)</span><br><span class="line">    &#125;)</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            msg: &quot;hello，张三&quot;,</span><br><span class="line">            time: 1621561377603,</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            fmtTime() &#123;</span><br><span class="line">                return dayjs(this.time).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        //局部过滤器</span><br><span class="line">        filters: &#123;</span><br><span class="line">            // timeFormater(value) &#123;</span><br><span class="line">            //     return dayjs(value).format(&#x27;YYYY年MM月DD日 HH:mm:ss&#x27;)</span><br><span class="line">            // &#125;,</span><br><span class="line">            timeFormater(value,str) &#123;</span><br><span class="line">                return dayjs(value).format(str)</span><br><span class="line">            &#125;,</span><br><span class="line">            // mySlice(value) &#123;</span><br><span class="line">            //     return value.slice(0, 5)</span><br><span class="line">            // &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el: &quot;#root2&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            name: &#x27;你好！法外狂徒张三！&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        <h4 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h4><p>天气切换案例：@click&#x3D;”isHot &#x3D; !isHot” 简单可以直接写，不用调方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">           info()&#123;</span><br><span class="line">               return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">                changeWeather()&#123;</span><br><span class="line">                    this.isHot=!this.isHot</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>监视天气变化：newValue为新值，oldvalue为原值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        // watch:&#123;</span><br><span class="line">        //     isHot:&#123;</span><br><span class="line">        //         // 初始化属性时，调用handler</span><br><span class="line">        //         immediate:true,</span><br><span class="line">        //         handler(newValue,oldValue)&#123;</span><br><span class="line">        //             console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        //         &#125;</span><br><span class="line">        //</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">        // 初始化属性时，调用handler</span><br><span class="line">        immediate:true,</span><br><span class="line">        handler(newValue,oldValue)&#123;</span><br><span class="line">            console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>监听属性，<strong>深度监视</strong>:带有数据结构的‘numbers.a’:   </p>
+<p>deep：true   属性内部深层数据发生变化，便触发监听</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.a&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.a++&quot;&gt;a++&lt;/button&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;numbers.b&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;numbers.b++&quot;&gt;b++&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            isHot:true,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                a:1,</span><br><span class="line">                b:2</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        computed:&#123;</span><br><span class="line">            info()&#123;</span><br><span class="line">                return this.isHot?&#x27;炎热&#x27;:&#x27;凉爽&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            changeWeather()&#123;</span><br><span class="line">                this.isHot=!this.isHot</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch:&#123;</span><br><span class="line">            isHot:&#123;</span><br><span class="line">                // 初始化属性时，调用handler</span><br><span class="line">                immediate:true,</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            &#x27;numbers.a&#x27;:&#123;</span><br><span class="line">                handler(newValue,oldValue)&#123;</span><br><span class="line">                    console.log(&quot;a被修改了&quot;,newValue,oldValue)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">            numbers:&#123;</span><br><span class="line">                deep:true,</span><br><span class="line">                handler()&#123;</span><br><span class="line">                    console.log(&quot;numbers改变了&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    // vm.$watch(&#x27;isHot&#x27;,&#123;</span><br><span class="line">    //     // 初始化属性时，调用handler</span><br><span class="line">    //     immediate:true,</span><br><span class="line">    //     handler(newValue,oldValue)&#123;</span><br><span class="line">    //         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">    //     &#125;</span><br><span class="line"></span><br><span class="line">    // &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>简写形式</strong>：前提imediate:true和deep:true不能启动</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isHot(newValue,oldValue)&#123;</span><br><span class="line">                  console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">              &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vm.$watch(&#x27;isHot&#x27;,function(newValue,oldValue)&#123;</span><br><span class="line">         console.log(&quot;isHot被修改了&quot;,newValue,oldValue)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>属性监听和计算属性比较：</p>
+<p>姓名案例用监听属性实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">            fullName:&#x27;张-三&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        // computed: &#123;</span><br><span class="line">        //     fullName: &#123;</span><br><span class="line">        //         get() &#123;</span><br><span class="line">        //             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //         &#125;,</span><br><span class="line">        //         set(value) &#123;</span><br><span class="line">        //             const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">        //             this.firstName = arr[0]</span><br><span class="line">        //             this.lastName = arr[1]</span><br><span class="line">        //         &#125;</span><br><span class="line">        //     &#125;</span><br><span class="line">        //</span><br><span class="line">        // &#125;</span><br><span class="line">        // computed:&#123;</span><br><span class="line">        //     fullName()&#123;</span><br><span class="line">        //         return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">        //     &#125;</span><br><span class="line">        // &#125;</span><br><span class="line">        //val传的新值</span><br><span class="line">        watch:&#123;</span><br><span class="line">            firstName(val)&#123;</span><br><span class="line">                setTimeout(()=&gt;&#123;</span><br><span class="line">                    this.fullName=val+&#x27;-&#x27;+this.lastName</span><br><span class="line">                &#125;,1000)</span><br><span class="line">            &#125;,</span><br><span class="line">            lastName(val)&#123;</span><br><span class="line">                this.fullName=this.firstName+&#x27;-&#x27;+val</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结</strong></p>
+<p>computed和watch区别：</p>
+<ul>
+<li>computed能完成的watch都能完成</li>
+<li>watch能够执行异步操作，如时间延长</li>
+<li>关于箭头函数：被Vue管理的函数最好写成普通函数，this就指向Vue;  watch必须写成箭头函数，this才指向Vue</li>
+</ul>
 
       
 
@@ -202,7 +229,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E8%BF%87%E6%BB%A4%E5%99%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/12/2022-7-12-%E7%9B%91%E8%A7%86%E5%B1%9E%E6%80%A7/">展开全文 >></a>
         </p>
       
 
@@ -268,80 +295,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/11/2022-7-11-%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-11-计算属性实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/">计算属性实现</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h4><p>姓名案例，实现属性计算操作，实现绑定（插值+methods方法实现）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;firstName + &#x27;-&#x27; + lastName&#125;&#125;&lt;/span&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            firstName:&#x27;张&#x27;,</span><br><span class="line">            lastName:&#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            fullName()&#123;</span><br><span class="line">                return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>采用计算属性方法赋值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            fullName: &#123;</span><br><span class="line">                get() &#123;</span><br><span class="line">                    return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">                &#125;,</span><br><span class="line">                set(value) &#123;</span><br><span class="line">                    const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">                    this.firstName = arr[0]</span><br><span class="line">                    this.lastName = arr[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>插值语法直接调fullName,会去调用计算属性中的get方法，并且在不改变依赖属性（firstName和lastName)，前提下get只会调用一次，后面会进行缓存，反之。。。</p>
-<p>set方法赋值必须改变以来属性值，才能实现真正改变</p>
-<p>计算属性简写：</p>
-<p>前提是保证只是读取，不做修改即无set(),注意调用任然采用,不能加（）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">         fullName()&#123;</span><br><span class="line">             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
         </p>
       
 
@@ -517,6 +470,80 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
+    <article id="post-2022-7-11-计算属性实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/">计算属性实现</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h4><p>姓名案例，实现属性计算操作，实现绑定（插值+methods方法实现）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;firstName + &#x27;-&#x27; + lastName&#125;&#125;&lt;/span&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm =new Vue(&#123;</span><br><span class="line">        el:&quot;#root&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            firstName:&#x27;张&#x27;,</span><br><span class="line">            lastName:&#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            fullName()&#123;</span><br><span class="line">                return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>采用计算属性方法赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=&quot;root&quot;&gt;</span><br><span class="line">    姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt;&lt;br/&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const vm = new Vue(&#123;</span><br><span class="line">        el: &quot;#root&quot;,</span><br><span class="line">        data: &#123;</span><br><span class="line">            firstName: &#x27;张&#x27;,</span><br><span class="line">            lastName: &#x27;三&#x27;,</span><br><span class="line">        &#125;,</span><br><span class="line">        computed: &#123;</span><br><span class="line">            fullName: &#123;</span><br><span class="line">                get() &#123;</span><br><span class="line">                    return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">                &#125;,</span><br><span class="line">                set(value) &#123;</span><br><span class="line">                    const arr = value.split(&#x27;-&#x27;)</span><br><span class="line">                    this.firstName = arr[0]</span><br><span class="line">                    this.lastName = arr[1]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>插值语法直接调fullName,会去调用计算属性中的get方法，并且在不改变依赖属性（firstName和lastName)，前提下get只会调用一次，后面会进行缓存，反之。。。</p>
+<p>set方法赋值必须改变以来属性值，才能实现真正改变</p>
+<p>计算属性简写：</p>
+<p>前提是保证只是读取，不做修改即无set(),注意调用任然采用,不能加（）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">         fullName()&#123;</span><br><span class="line">             return this.firstName + &#x27;-&#x27; + this.lastName</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/11/2022-7-11-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Layui表单-编辑弹出层-数据回显··" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -609,7 +636,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>在两种情况下我们会自己去安装依赖：</p>
 <p>（1）项目运行缺少该依赖包：例如项目加载外部css会用到的css-loader，路由跳转vue-loader等（安装方法示例：npm install css-loader）</p>
 <p>（2）安装插件：如vux（基于WEUI的移动端组件库），vue-swiper（轮播插件</p>
-<p>注：有时会安装指定依赖版本，需在依赖包名称后加上版本号信息，如安装11.1.4版本的vue-loader，输入npm install <a href="mailto:&#x76;&#117;&#101;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#x31;&#x31;&#x2e;&#49;&#46;&#x34;">&#x76;&#117;&#101;&#45;&#x6c;&#111;&#x61;&#x64;&#101;&#114;&#x40;&#x31;&#x31;&#x2e;&#49;&#46;&#x34;</a></p>
+<p>注：有时会安装指定依赖版本，需在依赖包名称后加上版本号信息，如安装11.1.4版本的vue-loader，输入npm install <a href="mailto:&#x76;&#x75;&#101;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x31;&#49;&#46;&#x31;&#46;&#52;">&#x76;&#x75;&#101;&#x2d;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#x31;&#49;&#46;&#x31;&#46;&#52;</a></p>
 <p><strong>4.src——[项目核心文件]</strong><br>项目核心文件前面已经进行了简单的说明，接下来重点讲解main.js，App.vue,及router的index.js</p>
 <p>4.1 index.html——[主页]<br>index.html如其他html一样，但一般只定义一个空的根节点，在main.js里面定义的实例将挂载在根节点下，内容都通过vue组件来填充</p>
 <p><img src="https://img-blog.csdn.net/20171126152954909" alt="在这里插入图片描述"></p>
@@ -658,123 +685,6 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/07/08/2022-7-8-Vue-cli%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-8-webpack安装及使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">webpack安装及使用</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2022-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、什么是webpack"><a href="#一、什么是webpack" class="headerlink" title="一、什么是webpack"></a>一、什么是webpack</h3><p>Webpack 是一个前端资源加载&#x2F;打包工具。它将根据模块的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB&spm=1001.2101.3001.7020">依赖关系</a>进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
-<h3 id="二、webpack安装及使用"><a href="#二、webpack安装及使用" class="headerlink" title="二、webpack安装及使用"></a>二、webpack安装及使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-cli -g  #全局安装webpack</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webpack -v   #查看安装版本号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="三、初始化项目"><a href="#三、初始化项目" class="headerlink" title="三、初始化项目"></a>三、初始化项目</h3><h4 id="1、创建webpack文件夹"><a href="#1、创建webpack文件夹" class="headerlink" title="1、创建webpack文件夹"></a>1、创建webpack文件夹</h4><p>进入webpack目录，执行命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、创建src文件夹"><a href="#2、创建src文件夹" class="headerlink" title="2、创建src文件夹"></a>2、创建src文件夹</h4><h4 id="3、src下创建common-js"><a href="#3、src下创建common-js" class="headerlink" title="3、src下创建common.js"></a>3、src下创建common.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.info = function (str) &#123;</span><br><span class="line">    document.write(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、src下创建utils-js"><a href="#4、src下创建utils-js" class="headerlink" title="4、src下创建utils.js"></a>4、src下创建utils.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.add = function (a, b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="5、src下创建main-js"><a href="#5、src下创建main-js" class="headerlink" title="5、src下创建main.js"></a>5、src下创建main.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const common = require(&#x27;./common&#x27;);</span><br><span class="line">const utils = require(&#x27;./utils&#x27;);</span><br><span class="line">common.info(&#x27;Hello world!&#x27; + utils.add(100, 200));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>四、JS打包</p>
-<p>1、webpack目录下创建配置文件webpack.config.js<br>以下配置的意思是：读取当前项目目录下src文件夹中的main.js（入口文件）内容，分析资源依赖，把相关的js文件打包，打包后的文件放入当前目录的dist文件夹下，打包后的js文件名为bundle.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#x27;./src/main.js&#x27;, //配置入口文件</span><br><span class="line">    output: &#123;</span><br><span class="line">   path: path.resolve(__dirname, &#x27;./dist&#x27;), //输出路径，__dirname：当前文件所在路径</span><br><span class="line">        filename: &#x27;bundle.js&#x27; //输出文件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、命令行执行编译命令"><a href="#2、命令行执行编译命令" class="headerlink" title="2、命令行执行编译命令"></a>2、命令行执行编译命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">webpack #有黄色警告</span><br><span class="line">webpack --mode=development #没有警告</span><br><span class="line">#执行后查看bundle.js 里面包含了上面两个js文件的内容并惊醒了代码压缩</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也可以配置项目的npm运行命令，修改package.json文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    //...,</span><br><span class="line">    &quot;dev&quot;: &quot;webpack --mode=development&quot;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>运行npm命令执行打包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、webpack目录下创建index-html"><a href="#3、webpack目录下创建index-html" class="headerlink" title="3、webpack目录下创建index.html"></a>3、webpack目录下创建index.html</h3><p>引用bundle.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、浏览器中查看index-html"><a href="#4、浏览器中查看index-html" class="headerlink" title="4、浏览器中查看index.html"></a>4、浏览器中查看index.html</h4><h3 id="五、CSS打包"><a href="#五、CSS打包" class="headerlink" title="五、CSS打包"></a>五、CSS打包</h3><p>1、安装style-loader和 css-loader<br>Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。</p>
-<p>Loader 可以理解为是模块和资源的转换器。</p>
-<p>首先我们需要安装相关Loader插件，css-loader 是将 css 装载到 javascript；style-loader 是让 javascript 认识css</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev style-loader css-loader </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、修改webpack.config.js</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //...,</span><br><span class="line">    output:&#123;&#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [  </span><br><span class="line">            &#123;  </span><br><span class="line">                test: /\.css$/,    //打包规则应用到以css结尾的文件上</span><br><span class="line">                use: [&#x27;style-loader&#x27;, &#x27;css-loader&#x27;]</span><br><span class="line">            &#125;  </span><br><span class="line">        ]  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="3、在src文件夹创建style-css"><a href="#3、在src文件夹创建style-css" class="headerlink" title="3、在src文件夹创建style.css"></a>3、在src文件夹创建style.css</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、修改main-js"><a href="#4、修改main-js" class="headerlink" title="4、修改main.js"></a>4、修改main.js</h4><p>在第一行引入style.css</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;./style.css&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack安装及使用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
@@ -989,30 +899,71 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
   
-    <article id="post-2022-7-6-Vue基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-8-webpack安装及使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/06/2022-7-6-Vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">Vue基本语法</a>
+      <a class="article-title" href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">webpack安装及使用</a>
     </h1>
   
 
         
-        <a href="/2022/07/06/2022-7-6-Vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-07-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
+        <a href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2022-07-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Vue模板语法"><a href="#Vue模板语法" class="headerlink" title="Vue模板语法"></a>Vue模板语法</h3>
-        
-          <a class="article-more-a" href="/2022/07/06/2022-7-6-Vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#more">more >></a>
-        
+        <h3 id="一、什么是webpack"><a href="#一、什么是webpack" class="headerlink" title="一、什么是webpack"></a>一、什么是webpack</h3><p>Webpack 是一个前端资源加载&#x2F;打包工具。它将根据模块的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB&spm=1001.2101.3001.7020">依赖关系</a>进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
+<h3 id="二、webpack安装及使用"><a href="#二、webpack安装及使用" class="headerlink" title="二、webpack安装及使用"></a>二、webpack安装及使用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-cli -g  #全局安装webpack</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">webpack -v   #查看安装版本号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、初始化项目"><a href="#三、初始化项目" class="headerlink" title="三、初始化项目"></a>三、初始化项目</h3><h4 id="1、创建webpack文件夹"><a href="#1、创建webpack文件夹" class="headerlink" title="1、创建webpack文件夹"></a>1、创建webpack文件夹</h4><p>进入webpack目录，执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、创建src文件夹"><a href="#2、创建src文件夹" class="headerlink" title="2、创建src文件夹"></a>2、创建src文件夹</h4><h4 id="3、src下创建common-js"><a href="#3、src下创建common-js" class="headerlink" title="3、src下创建common.js"></a>3、src下创建common.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.info = function (str) &#123;</span><br><span class="line">    document.write(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、src下创建utils-js"><a href="#4、src下创建utils-js" class="headerlink" title="4、src下创建utils.js"></a>4、src下创建utils.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exports.add = function (a, b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="5、src下创建main-js"><a href="#5、src下创建main-js" class="headerlink" title="5、src下创建main.js"></a>5、src下创建main.js</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const common = require(&#x27;./common&#x27;);</span><br><span class="line">const utils = require(&#x27;./utils&#x27;);</span><br><span class="line">common.info(&#x27;Hello world!&#x27; + utils.add(100, 200));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>四、JS打包</p>
+<p>1、webpack目录下创建配置文件webpack.config.js<br>以下配置的意思是：读取当前项目目录下src文件夹中的main.js（入口文件）内容，分析资源依赖，把相关的js文件打包，打包后的文件放入当前目录的dist文件夹下，打包后的js文件名为bundle.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#x27;./src/main.js&#x27;, //配置入口文件</span><br><span class="line">    output: &#123;</span><br><span class="line">   path: path.resolve(__dirname, &#x27;./dist&#x27;), //输出路径，__dirname：当前文件所在路径</span><br><span class="line">        filename: &#x27;bundle.js&#x27; //输出文件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、命令行执行编译命令"><a href="#2、命令行执行编译命令" class="headerlink" title="2、命令行执行编译命令"></a>2、命令行执行编译命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">webpack #有黄色警告</span><br><span class="line">webpack --mode=development #没有警告</span><br><span class="line">#执行后查看bundle.js 里面包含了上面两个js文件的内容并惊醒了代码压缩</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>也可以配置项目的npm运行命令，修改package.json文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    //...,</span><br><span class="line">    &quot;dev&quot;: &quot;webpack --mode=development&quot;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行npm命令执行打包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、webpack目录下创建index-html"><a href="#3、webpack目录下创建index-html" class="headerlink" title="3、webpack目录下创建index.html"></a>3、webpack目录下创建index.html</h3><p>引用bundle.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;dist/bundle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、浏览器中查看index-html"><a href="#4、浏览器中查看index-html" class="headerlink" title="4、浏览器中查看index.html"></a>4、浏览器中查看index.html</h4><h3 id="五、CSS打包"><a href="#五、CSS打包" class="headerlink" title="五、CSS打包"></a>五、CSS打包</h3><p>1、安装style-loader和 css-loader<br>Webpack 本身只能处理 JavaScript 模块，如果要处理其他类型的文件，就需要使用 loader 进行转换。</p>
+<p>Loader 可以理解为是模块和资源的转换器。</p>
+<p>首先我们需要安装相关Loader插件，css-loader 是将 css 装载到 javascript；style-loader 是让 javascript 认识css</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev style-loader css-loader </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、修改webpack.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;); //Node.js内置模块</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    //...,</span><br><span class="line">    output:&#123;&#125;,</span><br><span class="line">    module: &#123;</span><br><span class="line">        rules: [  </span><br><span class="line">            &#123;  </span><br><span class="line">                test: /\.css$/,    //打包规则应用到以css结尾的文件上</span><br><span class="line">                use: [&#x27;style-loader&#x27;, &#x27;css-loader&#x27;]</span><br><span class="line">            &#125;  </span><br><span class="line">        ]  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、在src文件夹创建style-css"><a href="#3、在src文件夹创建style-css" class="headerlink" title="3、在src文件夹创建style.css"></a>3、在src文件夹创建style.css</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4、修改main-js"><a href="#4、修改main-js" class="headerlink" title="4、修改main.js"></a>4、修改main.js</h4><p>在第一行引入style.css</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;./style.css&#x27;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -1025,7 +976,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Vue基本语法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack安装及使用</a>
         		</li>
       		
 		</ul>
@@ -1035,7 +986,95 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/06/2022-7-6-Vue%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/08/2022-7-8-webpack%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-6-Vue事件绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/06/2022-7-6-Vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/">Vue事件绑定</a>
+    </h1>
+  
+
+        
+        <a href="/2022/07/06/2022-7-6-Vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/" class="archive-article-date">
+  	<time datetime="2022-07-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h4><p><img src="D:\typora-user-images\image-20220706161156730.png" alt="image-20220706161156730"></p>
+<p>事件的基本使用：</p>
+<p>​    1.使用v-on:xxx 或@xxx 绑定事件，其中xxx是事件名（事件必须定义Vue实例methods方法中）</p>
+<p>​    2.事件的回调需要配置在methods方法中，最终回在vm上</p>
+<p>​    3.methods中配置的函数，不要用箭头函数！否则this就不是vm了</p>
+<p>​    4.methods中配置的函数，都是vue管理的函数，this的指向是vm 或组件实例对象</p>
+<p>​    5.@click&#x3D;”demo”  和 @click&#x3D;”demo($event)”效果一致但后者可以传参。</p>
+<h4 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h4><p>1.prevent:阻止默认事件</p>
+<p>2.stop:阻止事件冒泡</p>
+<p>3.once:事件指出触发一次</p>
+<p>使用：阻止链接跳转</p>
+<p><img src="D:\typora-user-images\image-20220706170304050.png" alt="image-20220706170304050"></p>
+<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4><p><img src="D:\typora-user-images\image-20220706164759878.png" alt="image-20220706164759878"></p>
+<p><img src="D:\typora-user-images\image-20220706164844112.png" alt="image-20220706164844112"></p>
+<p>@keyup.esc&#x3D;“xx”,监听键盘调用事件</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Vue事件绑定</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/06/2022-7-6-Vue%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A/">展开全文 >></a>
         </p>
       
 
@@ -1162,11 +1201,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1174,11 +1213,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">Vue事件绑定</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue事件绑定</a>
+                <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,6 +1229,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Vue组件应用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
               </li>
              
@@ -1198,15 +1241,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue组件应用</a>
+                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1218,15 +1257,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JVM性能调优</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Java中的异常体系</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JVM性能调优</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1285,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,7 +1305,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">list和set区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,7 +1313,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">list和set区别</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1290,7 +1329,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,11 +1337,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1310,15 +1345,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1334,7 +1373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
+                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,7 +1381,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
+                <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
               </li>
             
             <div class="clearfix"></div>
