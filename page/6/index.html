@@ -490,66 +490,10 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="redis基本命令"><a href="#redis基本命令" class="headerlink" title="redis基本命令"></a>redis基本命令</h1><p>1、切换数据库 select 0&#x2F;1&#x2F;2….&#x2F;15  总共16个数据库</p>
-<p>2、查看数据库大小 dbsize</p>
-<p>3、set name cxc -&gt;key:name value:cxc    ;    get name 获取对应value:cxc</p>
-<p>4、keys * 查看所有key</p>
-<p>5、flushdb 清空数据库  flushall 清空全部数据库内容</p>
-<p>6、exists name 查看key:name 是否存在</p>
-<p>7、mova name 1   将数据库1的key:name 移除</p>
-<p>8、expire name 10 将key:name 设置10s过期 ttl name 查看剩余时间</p>
-<p>9、type name 查看key:name 类型（string、int…)</p>
-<p>10、append name “123” -&gt;向key:name 后拼接字符串   value:cxc123</p>
-<p>11、strlen name 获取字符串长度</p>
-<p>12、incr view 自增  +1  （view初始值  set view 0  ）  </p>
-<p>​        decr view 自减    -1  </p>
-<p>​        incrby view 10   每次+10</p>
-<p>​        decrby view 10 每次-10</p>
-<p>13、getrange key 0 3 截取  0-3字符串</p>
-<p>​        getrange key 0 -1 截取  所有</p>
-<p>14、setrange key 3 xxx替换    指定索引开始后面的字符串</p>
-<p>15、setex key3 30 “hello” 如果key3存在 设置   hello  30S过期</p>
-<p>​         setnx key3 “helo” 如果key3不存在，设置   key3且赋值</p>
-<p>16、mset k1 v1 k2 v2 k3 v3…批量设置值</p>
-<p>​         mget k1 k2 k3….批量获取值</p>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>1、Lpush list one 向list集合左边插入一个值</p>
-<p>2、Rright list two 向list集合右边插入一个值</p>
-<p>3、Lrange list 0 -1 查询所有元素</p>
-<p>4、Lpop list 移除左边第一个数</p>
-<p>​      Rpop 移除右边第一个数</p>
-<p>5、Lindex list 0 通过下标获取一个值</p>
-<p>6、Llen list 返回列表长度</p>
-<p>7、Lrem list 1 one  移除一个“one”的数据  （注：数据可重复）</p>
-<p>8、Ltrim list 0  2  修剪列表，只剩下0、1、2三个数</p>
-<p>9、RpopLpush list1 list2  移除list1最后一个元素到list2前面</p>
-<p>10、lset list 0 two 将列表中第一个数设置为two  更新</p>
-<p>11、linsert list before two one 向list中two的前面插入one</p>
-<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>不可重复</p>
-<p>1、sadd myset “hello”   向myset中添加值</p>
-<p>2、smenbers myset 查看myset所有值</p>
-<p>3、sismenber myset “hello” 查看”hello”是否是myset中值</p>
-<p>4、scard myset 获取myset中元素个数</p>
-<p>5、srem myset hello 移除集合指定元素</p>
-<p>6、sranmember myset 2 指定个数随机出现</p>
-<p>7、spop myset 随机删除一个元素</p>
-<p>8、smove myset1 myset2 one 将one从myset1移动到myset2</p>
-<p>9、sdiff myset1 myset2  两个集合差集</p>
-<p>​      sinter myset1 myset2 两个集合交级</p>
-<p>​     sunion  myset1 myset2 两个集合并级</p>
-<h2 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h2><p>map集合  key-value</p>
-<p>1、hset myhash fied1 cxc  设置值      和string没什么区别</p>
-<p>2、hget myhash fied1  获取值</p>
-<p>3、hmset myhash feid1 cxc  feid2 one  设置多个值</p>
-<p>hmget myhash feid1 feid2  获取多个值</p>
-<p>4、hgetall myhash 获取所有值</p>
-<p>5、hdel myhash feid1 删除指定的key</p>
-<p>6、hlen myhash 获取数量</p>
-<p>7、hexist myhash feid1 判断指定key-value是否存在</p>
-<p>8、hkeys myhash 获取所有字段</p>
-<p>​      hvals myhash 获取所有字段值</p>
-<p>9、hincrby myhash feid1 1   将feid1字段值+1</p>
-<p>​     hincrby myhash feid1 -1   将feid1字段值-1</p>
-
+        <h1 id="redis基本命令"><a href="#redis基本命令" class="headerlink" title="redis基本命令"></a>redis基本命令</h1>
+        
+          <a class="article-more-a" href="/2022/01/01/2022-1-1-redis%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/#more">more >></a>
+        
       
 
       
@@ -1260,6 +1204,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">layui</a>
               </li>
             
             <div class="clearfix"></div>
