@@ -230,7 +230,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <p>在两种情况下我们会自己去安装依赖：</p>
 <p>（1）项目运行缺少该依赖包：例如项目加载外部css会用到的css-loader，路由跳转vue-loader等（安装方法示例：npm install css-loader）</p>
 <p>（2）安装插件：如vux（基于WEUI的移动端组件库），vue-swiper（轮播插件</p>
-<p>注：有时会安装指定依赖版本，需在依赖包名称后加上版本号信息，如安装11.1.4版本的vue-loader，输入npm install <a href="mailto:&#x76;&#x75;&#x65;&#45;&#108;&#x6f;&#x61;&#100;&#101;&#x72;&#64;&#49;&#x31;&#46;&#x31;&#x2e;&#52;">&#x76;&#x75;&#x65;&#45;&#108;&#x6f;&#x61;&#100;&#101;&#x72;&#64;&#49;&#x31;&#46;&#x31;&#x2e;&#52;</a></p>
+<p>注：有时会安装指定依赖版本，需在依赖包名称后加上版本号信息，如安装11.1.4版本的vue-loader，输入npm install <a href="mailto:&#118;&#117;&#101;&#x2d;&#108;&#x6f;&#x61;&#x64;&#x65;&#x72;&#x40;&#49;&#49;&#46;&#x31;&#x2e;&#x34;">&#118;&#117;&#101;&#x2d;&#108;&#x6f;&#x61;&#x64;&#x65;&#x72;&#x40;&#49;&#49;&#46;&#x31;&#x2e;&#x34;</a></p>
 <p><strong>4.src——[项目核心文件]</strong><br>项目核心文件前面已经进行了简单的说明，接下来重点讲解main.js，App.vue,及router的index.js</p>
 <p>4.1 index.html——[主页]<br>index.html如其他html一样，但一般只定义一个空的根节点，在main.js里面定义的实例将挂载在根节点下，内容都通过vue组件来填充</p>
 <p><img src="https://img-blog.csdn.net/20171126152954909" alt="在这里插入图片描述"></p>
@@ -433,33 +433,34 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
           </div>
         </div>
       </div>
-      
-
-<footer id="footer">
+      <footer id="footer">
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
                 &copy; 2022 SuperYiBo
             </div>
-                  	<div class="footer-right">
-                  		<a href="https://gitee.com/superyibo" target="_blank">gitee</a>  <a href="https://github.com/Supercx1" target="_blank">github</a> by SuperYiBo
-                  	</div>
+            
+                <!-- 不蒜子统计 -->
+                <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
+                <span class="post-meta-divider">|</span>
+                <span id="busuanzi_container_site_uv" style='display:none'>
+                本站访客数<span id="busuanzi_value_site_uv"></span>人
+        </span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            
+            <div class="footer-right">
+                <a href="https://gitee.com/superyibo" target="_blank">gitee</a> <a href="https://github.com/Supercx1"
+                                                                                   target="_blank">github</a> by
+                SuperYiBo
+            </div>
 
 
         </div>
 
     </div>
 </footer>
-
-    <!-- 不蒜子统计 -->
-    <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-        </span>
-    <span class="post-meta-divider">|</span>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-                本站访客数<span id="busuanzi_value_site_uv"></span>人
-        </span>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
     </div>
@@ -540,11 +541,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color1">git命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -572,15 +573,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue-cli项目目录结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Vue计算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue-cli项目目录结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +609,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HashMap和HashTable有什么区别？其底层实现是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JDK JRE JVM</a>
+                <a href="javascript:void(0)" class="js-tag color3">HashMap和HashTable有什么区别？其底层实现是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -628,6 +629,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">layui</a>
               </li>
              
@@ -640,23 +645,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">SpringMVC 工作流程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color1">final</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
+                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,11 +677,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color3">sleep()、wait()、join()、yield()的区别</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sleep()、wait()、join()、yield()的区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,11 +697,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
+                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
+                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,11 +709,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
+                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
               </li>
              
               <li class="article-tag-list-item">
