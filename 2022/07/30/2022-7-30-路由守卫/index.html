@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: layui | Supercx博客</title>
+  <title>路由守卫 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Supercx博客">
-<meta property="og:url" content="http://example.com/tags/layui/index.html">
+  <meta name="description" content="保护路由安全(权限)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由守卫">
+<meta property="og:url" content="http://example.com/2022/07/30/2022-7-30-%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB/index.html">
 <meta property="og:site_name" content="Supercx博客">
+<meta property="og:description" content="保护路由安全(权限)">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-30T15:09:55.821Z">
 <meta property="article:author" content="SuperYiBo">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Supercx博客" type="application/atom+xml">
@@ -183,64 +188,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-2022-7-30-路由守卫" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-
-<a href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/" class="archive-article-date">
-  	<time datetime="2022-07-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/07/11/Layui%E8%A1%A8%E5%8D%95-%E7%BC%96%E8%BE%91%E5%BC%B9%E5%87%BA%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%9B%9E%E6%98%BE%C2%B7%C2%B7/">Layui表单 编辑弹出层 数据回显</a>
+    <h1 class="article-title" itemprop="name">
+      路由守卫
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+    <!-- 不蒜子统计 -->
+    <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+
+<a href="/2022/07/30/2022-7-30-%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB/" class="archive-article-date">
+  	<time datetime="2022-07-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-30</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="保护路由安全-权限"><a href="#保护路由安全-权限" class="headerlink" title="保护路由安全(权限)"></a>保护路由安全(权限)</h5><span id="more"></span>
+
+<p>全局前置路由守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//全局前置路由守卫-初始化的时候被调用、每次路由切换之前被调用</span><br><span class="line">router.beforeEach((to,from,next)=&gt;&#123;</span><br><span class="line">    console.log(to,from)</span><br><span class="line">    // if(to.path===&#x27;/home/news&#x27;||to.path===&#x27;/home/message&#x27;)&#123;   //指定路径需要权限</span><br><span class="line">    // if(to.name===&#x27;hello&#x27;)&#123;   //name=hello的需要权限</span><br><span class="line">    if(to.meta.isAuth)&#123;  //判断是否需要权限，meta中可以自定义key-value</span><br><span class="line">        if(localStorage.getItem(&#x27;school&#x27;)===&#x27;atguigu&#x27;)&#123;</span><br><span class="line">            next()</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            alert(&quot;学校名不对，无权查看！&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        next()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>全局后置路由守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//后置路由守卫</span><br><span class="line">router.afterEach((to,from)=&gt;&#123;</span><br><span class="line">    if(to.meta.title)&#123;</span><br><span class="line">        document.title=to.meta.title   //修改网页的title</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        document.title=&#x27;vue_test&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>独享路由守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">            path:&#x27;/about&#x27;,</span><br><span class="line">            component:About,</span><br><span class="line">            meta:&#123;isAuth:true&#125;,</span><br><span class="line">            //独享路由首位</span><br><span class="line">            beforeEnter:(to,from,next)=&gt;&#123;</span><br><span class="line">                if(to.meta.isAuth)&#123;  //判断是否需要权限，meta中可以自定义key-value</span><br><span class="line">                    if (localStorage.getItem(&#x27;school&#x27;) === &#x27;atguigu&#x27;) &#123;</span><br><span class="line">                        next()</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        alert(&quot;学校名不对，无权查看！&quot;)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    next()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>组件内路由守卫</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//组件内路由守卫，进入组件时被调用</span><br><span class="line"> beforeRouteEnter(to,from,next)&#123;</span><br><span class="line">   if(to.meta.isAuth)&#123;  //判断是否需要权限，meta中可以自定义key-value</span><br><span class="line">     if (localStorage.getItem(&#x27;school&#x27;) === &#x27;atguigu&#x27;) &#123;</span><br><span class="line">       next()</span><br><span class="line">     &#125; else &#123;</span><br><span class="line">       alert(&quot;学校名不对，无权查看！&quot;)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">     next()</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br><span class="line"> //离开组件时被调用</span><br><span class="line"> beforeRouteLeave(to,from,next)&#123;</span><br><span class="line">   next()</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/zhifubaopay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixinpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">layui</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://supercx1.github.io/022/07/30/2022-7-30-%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/07/30/2022-7-30-vue%E5%B5%8C%E5%A5%97%E8%B7%AF%E7%94%B1vue-router/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          嵌套路由vue-router
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/07/29/2022-7-29-vue-resoure%E6%9B%BF%E6%8D%A2axios/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-resoure替换axios</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E8%B7%AF%E7%94%B1%E5%AE%89%E5%85%A8-%E6%9D%83%E9%99%90"><span class="toc-number">1.</span> <span class="toc-text">保护路由安全(权限)</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
 
+  
+
+  
 
 
           </div>
@@ -282,9 +446,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
