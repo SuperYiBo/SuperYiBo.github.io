@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>vue-mixin混入 | Supercx博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mixin实现多个组件共同方法抽取。 如以下案例">
+  <meta name="description" content="mixin实现多个组件共同方法抽取。-mixin 如以下案例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-mixin混入">
 <meta property="og:url" content="http://example.com/2022/07/23/2022-7-23-vue-mixin%E6%B7%B7%E5%85%A5/index.html">
 <meta property="og:site_name" content="Supercx博客">
-<meta property="og:description" content="mixin实现多个组件共同方法抽取。 如以下案例">
+<meta property="og:description" content="mixin实现多个组件共同方法抽取。-mixin 如以下案例">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-07-23T07:27:47.807Z">
+<meta property="article:modified_time" content="2022-07-30T14:28:16.345Z">
 <meta property="article:author" content="SuperYiBo">
-<meta property="article:tag" content="vue-mixin">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Supercx博客" type="application/atom+xml">
@@ -216,7 +216,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mixin实现多个组件共同方法抽取。</p>
+        <p>mixin实现多个组件共同方法抽取。-mixin</p>
 <p>如以下案例<span id="more"></span></p>
 <p>Student和School都有共同方法methods,为了实现代码复用，如何将methods中nameShow方法抽取出来</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class7=&quot;school&quot;&gt;</span><br><span class="line">    &lt;h2&gt;学校名称：&#123;&#123;name&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;h2&gt;学校地址：&#123;&#123;address&#125;&#125;&lt;/h2&gt;</span><br><span class="line">    &lt;button @click=&quot;nameShow&quot;&gt;学校名称展示&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;School&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      name: &#x27;尚硅谷&#x27;,</span><br><span class="line">      address: &#x27;北京&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    nameShow() &#123;</span><br><span class="line">      alert(this.name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -280,7 +280,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vue-mixin</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -351,7 +351,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/07/23/todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/23/2022-7-23%20vue-todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -361,8 +361,8 @@
     </a>
   
   
-    <a href="/2022/07/23/2022-7-23-vue-props%E5%B1%9E%E6%80%A7%E5%A4%8D%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue-props属性复用,对象、数组、函数接收</div>
+    <a href="/2022/07/23/2022-7-23-vue%E6%8F%92%E4%BB%B6-plugins%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue插件 plugins应用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -523,11 +523,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">面向对象理解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +531,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+                <a href="javascript:void(0)" class="js-tag color2">面向对象理解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-@click</a>
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,99 +543,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-computed</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-@keyup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-@clik.prevent</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-v-model运用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-push\pop\unshift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-v-if</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-mixin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-props</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue-ref属性获取实例对象</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-webStorage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue-任意组件中通信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue实现组件之间数据传递通信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vue-v-on$ref&$emit$on</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">excel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-todoList中bus总线,v-show,blur，ref等综合运用</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue-动画效果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue事件绑定</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue计算</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue基本语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue-cli项目目录结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Vue组件应用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">==与equals比较</a>
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,19 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ArrayList和LinkedList区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BeanFactory和ApplicationContext有什么区别？</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GC如何判断对象可以被回收</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HashMap和HashTable有什么区别？其底层实现是什么？</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,11 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Java中的异常体系</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Java类加载器</a>
+                <a href="javascript:void(0)" class="js-tag color5">Jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,19 +583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Spring Boot 自动配置原理？</a>
+                <a href="javascript:void(0)" class="js-tag color2">Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Spring Boot、Spring MVC 和 Spring 有什么区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SpringMVC 工作流程</a>
+                <a href="javascript:void(0)" class="js-tag color5">SpringMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,39 +595,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Thread、Runable的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">final</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hashCode与equals</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java连接数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sleep()、wait()、join()、yield()的区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">list和set区别</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">string、stringbuffer、stringbulider区别和使用场景</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">spring是什么？</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,23 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">双亲委托模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">如何实现一个IOC容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">对线程安全的理解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">如何理解 Spring Boot 中的 Starter</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">接口和抽象类区别</a>
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -767,31 +615,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">线程的生命周期？线程有几种状态</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">描述一下Spring Bean的生命周期？</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">索引的基本原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络通信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">谈谈你对IOC的理解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">谈谈你对AOP的理解</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">重载和重写</a>
               </li>
             
             <div class="clearfix"></div>
