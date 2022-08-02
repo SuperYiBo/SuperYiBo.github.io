@@ -185,21 +185,654 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2022-7-13-Vue组件嵌套" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-24-vue-组件自定义事件—绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/">Vue组件嵌套</a>
+      <a class="article-title" href="/2022/07/24/2022-7-24-vue-%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E2%80%94%E7%BB%91%E5%AE%9A/">组件自定义事件—绑定</a>
     </h1>
   
 
         
         
 
-<a href="/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/" class="archive-article-date">
+<a href="/2022/07/24/2022-7-24-vue-%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E2%80%94%E7%BB%91%E5%AE%9A/" class="archive-article-date">
+  	<time datetime="2022-07-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-24</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="v-on-amp-ref替换通过父组件给子组件传递函数类型props实现：-子给父传递数据-v-on-ref-amp-emit-on"><a href="#v-on-amp-ref替换通过父组件给子组件传递函数类型props实现：-子给父传递数据-v-on-ref-amp-emit-on" class="headerlink" title="v-on&amp;ref替换通过父组件给子组件传递函数类型props实现： 子给父传递数据-v-on$ref&amp;$emit$on"></a>v-on&amp;ref替换通过父组件给子组件传递函数类型props实现： 子给父传递数据-v-on$ref&amp;$emit$on</h4>
+        
+          <a class="article-more-a" href="/2022/07/24/2022-7-24-vue-%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E2%80%94%E7%BB%91%E5%AE%9A/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/24/2022-7-24-vue-%E7%BB%84%E4%BB%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6%E2%80%94%E7%BB%91%E5%AE%9A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-23 vue-todoList案例组件之间通信props" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/23/2022-7-23%20vue-todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/">todoList案例组件之间通信props</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/23/2022-7-23%20vue-todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/" class="archive-article-date">
+  	<time datetime="2022-07-23T13:52:21.057Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="组件之间通信"><a href="#组件之间通信" class="headerlink" title="组件之间通信"></a>组件之间通信</h5>
+        
+          <a class="article-more-a" href="/2022/07/23/2022-7-23%20vue-todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/23/2022-7-23%20vue-todoList%E6%A1%88%E4%BE%8B%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1props/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-23-vue-mixin混入" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/23/2022-7-23-vue-mixin%E6%B7%B7%E5%85%A5/">vue-mixin混入</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/23/2022-7-23-vue-mixin%E6%B7%B7%E5%85%A5/" class="archive-article-date">
+  	<time datetime="2022-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mixin实现多个组件共同方法抽取。-mixin</p>
+<p>如以下案例
+        
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue-mixin%E6%B7%B7%E5%85%A5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue-mixin%E6%B7%B7%E5%85%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-23-vue-props属性复用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/23/2022-7-23-vue-props%E5%B1%9E%E6%80%A7%E5%A4%8D%E7%94%A8/">vue-props属性复用,对象、数组、函数接收</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/23/2022-7-23-vue-props%E5%B1%9E%E6%80%A7%E5%A4%8D%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2022-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>props实现同一个组件实现不同标签属性展示。-props</p>
+        
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue-props%E5%B1%9E%E6%80%A7%E5%A4%8D%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue-props%E5%B1%9E%E6%80%A7%E5%A4%8D%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-23-vue插件-plugins应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/23/2022-7-23-vue%E6%8F%92%E4%BB%B6-plugins%E5%BA%94%E7%94%A8/">vue插件 plugins应用</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/23/2022-7-23-vue%E6%8F%92%E4%BB%B6-plugins%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2022-07-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>plugins.js插件应用，将过滤器和自定义标签等等方法定义在插件中，使用全局定义，所有组件中都可运用插件中方法</p>
+        
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue%E6%8F%92%E4%BB%B6-plugins%E5%BA%94%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/23/2022-7-23-vue%E6%8F%92%E4%BB%B6-plugins%E5%BA%94%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-21-vue-ref属性获取实例对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/21/2022-7-21-vue-ref%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1/">vue-ref属性获取实例对象</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/21/2022-7-21-vue-ref%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
+  	<time datetime="2022-07-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-21</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="vue-ref属性获取实例对象"><a href="#vue-ref属性获取实例对象" class="headerlink" title="vue-ref属性获取实例对象"></a>vue-ref属性获取实例对象</h4>
+        
+          <a class="article-more-a" href="/2022/07/21/2022-7-21-vue-ref%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/21/2022-7-21-vue-ref%E5%B1%9E%E6%80%A7%E8%8E%B7%E5%8F%96%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-14-创建脚手架vue-cli" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/14/2022-7-14-%E5%88%9B%E5%BB%BA%E8%84%9A%E6%89%8B%E6%9E%B6vue-cli/">创建脚手架vue-cli</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/14/2022-7-14-%E5%88%9B%E5%BB%BA%E8%84%9A%E6%89%8B%E6%9E%B6vue-cli/" class="archive-article-date">
+  	<time datetime="2022-07-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-14</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="创建脚手架vue-cli"><a href="#创建脚手架vue-cli" class="headerlink" title="创建脚手架vue-cli"></a>创建脚手架vue-cli</h4>
+        
+          <a class="article-more-a" href="/2022/07/14/2022-7-14-%E5%88%9B%E5%BB%BA%E8%84%9A%E6%89%8B%E6%9E%B6vue-cli/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/14/2022-7-14-%E5%88%9B%E5%BB%BA%E8%84%9A%E6%89%8B%E6%9E%B6vue-cli/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-15 vue-自定义标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/13/2022-7-15%20vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE/">vue自定义标签</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/13/2022-7-15%20vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE/" class="archive-article-date">
+  	<time datetime="2022-07-13T15:23:54.708Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
+</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="自定义标签"><a href="#自定义标签" class="headerlink" title="自定义标签"></a>自定义标签</h4>
+        
+          <a class="article-more-a" href="/2022/07/13/2022-7-15%20vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/13/2022-7-15%20vue-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2022-7-13 vue-mounted钩子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/13/2022-7-13%20vue-mounted%E9%92%A9%E5%AD%90/">mounted钩子</a>
+    </h1>
+  
+
+        
+        
+
+<a href="/2022/07/13/2022-7-13%20vue-mounted%E9%92%A9%E5%AD%90/" class="archive-article-date">
   	<time datetime="2022-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
 </a>
 
@@ -208,9 +841,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Vue组件嵌套"><a href="#Vue组件嵌套" class="headerlink" title="Vue组件嵌套"></a>Vue组件嵌套</h4>
+        <h4 id="mounted钩子"><a href="#mounted钩子" class="headerlink" title="mounted钩子"></a>mounted钩子</h4>
         
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/#more">more >></a>
+          <a class="article-more-a" href="/2022/07/13/2022-7-13%20vue-mounted%E9%92%A9%E5%AD%90/#more">more >></a>
         
       
 
@@ -224,7 +857,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
         		</li>
       		
 		</ul>
@@ -234,7 +867,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-Vue%E7%BB%84%E4%BB%B6%E5%B5%8C%E5%A5%97/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/13/2022-7-13%20vue-mounted%E9%92%A9%E5%AD%90/">展开全文 >></a>
         </p>
       
 
@@ -264,21 +897,21 @@
 
 
   
-    <article id="post-2022-7-13-vue-vm生命周期-8个（4对）钩子函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2022-7-13-VueComponent对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/2022-7-13-vue-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/">vm生命周期 8个（4对）钩子函数</a>
+      <a class="article-title" href="/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/">VueComponent对象</a>
     </h1>
   
 
         
         
 
-<a href="/2022/07/13/2022-7-13-vue-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/" class="archive-article-date">
+<a href="/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
   	<time datetime="2022-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
 </a>
 
@@ -287,88 +920,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="vm生命周期-8个函数"><a href="#vm生命周期-8个函数" class="headerlink" title="vm生命周期 8个函数"></a>vm生命周期 8个函数</h4>
+        <h4 id="VueComponent对象"><a href="#VueComponent对象" class="headerlink" title="VueComponent对象"></a>VueComponent对象</h4>
         
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue-vm%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-8%E4%B8%AA%EF%BC%884%E5%AF%B9%EF%BC%89%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-13-vue指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/2022-7-13-vue%E6%8C%87%E4%BB%A4/">vue指令</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/13/2022-7-13-vue%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2022-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="vue指令"><a href="#vue指令" class="headerlink" title="vue指令"></a>vue指令</h4>
-        
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue%E6%8C%87%E4%BB%A4/#more">more >></a>
+          <a class="article-more-a" href="/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/#more">more >></a>
         
       
 
@@ -382,7 +936,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Vue2</a>
         		</li>
       		
 		</ul>
@@ -392,560 +946,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue%E6%8C%87%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-13-vue组件写法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/13/2022-7-13-vue%E7%BB%84%E4%BB%B6%E5%86%99%E6%B3%95/">vue组件写法</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/13/2022-7-13-vue%E7%BB%84%E4%BB%B6%E5%86%99%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="vue组件写法"><a href="#vue组件写法" class="headerlink" title="vue组件写法"></a>vue组件写法</h4>
-        
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue%E7%BB%84%E4%BB%B6%E5%86%99%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/13/2022-7-13-vue%E7%BB%84%E4%BB%B6%E5%86%99%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-列表排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/">列表排序</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="列表排序"><a href="#列表排序" class="headerlink" title="列表排序"></a>列表排序</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-key的作用与原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">key的作用与原理</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="key的作用与原理"><a href="#key的作用与原理" class="headerlink" title="key的作用与原理"></a>key的作用与原理</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-key%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-列表渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">列表渲染</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-收集表单数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">收集表单数据</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="收集表单数据-v-model运用"><a href="#收集表单数据-v-model运用" class="headerlink" title="收集表单数据-v-model运用"></a>收集表单数据-v-model运用</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E6%94%B6%E9%9B%86%E8%A1%A8%E5%8D%95%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-条件渲染" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">条件渲染if-else</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="条件渲染-v-if"><a href="#条件渲染-v-if" class="headerlink" title="条件渲染-v-if"></a>条件渲染-v-if</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2022-7-12-vue-监测数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/12/2022-7-12-vue-%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84/">监测数组-push\pop</a>
-    </h1>
-  
-
-        
-        
-
-<a href="/2022/07/12/2022-7-12-vue-%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2022-07-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-12</time>
-</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="监测数组-push-pop-unshift"><a href="#监测数组-push-pop-unshift" class="headerlink" title="监测数组-push\pop\unshift"></a>监测数组-push\pop\unshift</h4>
-        
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/2022-7-12-vue-%E7%9B%91%E6%B5%8B%E6%95%B0%E7%BB%84/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/07/13/2022-7-13-VueComponent%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
         </p>
       
 
@@ -977,7 +978,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+      <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </nav>
   
 
@@ -1095,10 +1096,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">reids</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1107,11 +1104,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">reids</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">面向对象理解</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color5">Vue2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,15 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue3</a>
+                <a href="javascript:void(0)" class="js-tag color5">Vue3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack安装及使用</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,10 +1161,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
